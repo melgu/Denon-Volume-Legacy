@@ -49,6 +49,7 @@
 		B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
+		B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +100,7 @@
 		B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */ = {
 			isa = PBXGroup;
 			children = (
+				B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */,
 				B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */,
 				B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */,
 				B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */,
@@ -196,7 +198,13 @@
 				TargetAttributes = {
 					B0CAAB4B1EBBC11100A1E8BF = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = FAZQH65APM;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
 					};
 					B0CAAB5C1EBBC11200A1E8BF = {
 						CreatedOnToolsVersion = 8.3.2;
@@ -407,11 +415,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Denon Volume/Denon Volume.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FAZQH65APM;
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -420,11 +432,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Denon Volume/Denon Volume.entitlements";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = FAZQH65APM;
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
