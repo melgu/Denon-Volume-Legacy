@@ -44,14 +44,15 @@ class MenuViewController: NSViewController {
 		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
 			guard error == nil else {
 				print(error!)
+				self.deviceField.textColor = NSColor.red
 				return
 			}
-			guard let data = data else {
-				print("Data is empty")
-				return
-			}
+//			guard let data = data else {
+//				print("Data is empty")
+//				return
+//			}
 			
-			print(data)
+			self.deviceField.textColor = NSColor.black
 		}
 		
 		task.resume()
