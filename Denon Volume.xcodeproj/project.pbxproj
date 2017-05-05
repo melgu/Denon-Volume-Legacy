@@ -15,6 +15,9 @@
 		B0CAAB7C1EBBD9B000A1E8BF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */; };
 		B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */; };
 		B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */; };
+		B0CAAB831EBC045700A1E8BF /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0CAAB821EBC045700A1E8BF /* Sparkle.framework */; };
+		B0CAAB851EBC04EB00A1E8BF /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0CAAB821EBC045700A1E8BF /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0CAAB881EBC06A900A1E8BF /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB871EBC06A900A1E8BF /* dsa_pub.pem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B0CAAB841EBC04D300A1E8BF /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B0CAAB851EBC04EB00A1E8BF /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +66,8 @@
 		B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
+		B0CAAB821EBC045700A1E8BF /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		B0CAAB871EBC06A900A1E8BF /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0CAAB831EBC045700A1E8BF /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +102,8 @@
 				B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */,
 				B0CAAB601EBBC11200A1E8BF /* Denon VolumeTests */,
 				B0CAAB6B1EBBC11200A1E8BF /* Denon VolumeUITests */,
+				B0CAAB811EBC043600A1E8BF /* Frameworks */,
+				B0CAAB861EBC068B00A1E8BF /* Resources */,
 				B0CAAB4D1EBBC11100A1E8BF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,6 +151,24 @@
 			path = "Denon VolumeUITests";
 			sourceTree = "<group>";
 		};
+		B0CAAB811EBC043600A1E8BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0CAAB821EBC045700A1E8BF /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			path = "Denon VolumeTests";
+			sourceTree = "<group>";
+		};
+		B0CAAB861EBC068B00A1E8BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B0CAAB871EBC06A900A1E8BF /* dsa_pub.pem */,
+			);
+			name = Resources;
+			path = "Denon VolumeTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,6 +179,7 @@
 				B0CAAB481EBBC11100A1E8BF /* Sources */,
 				B0CAAB491EBBC11100A1E8BF /* Frameworks */,
 				B0CAAB4A1EBBC11100A1E8BF /* Resources */,
+				B0CAAB841EBC04D300A1E8BF /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -244,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */,
+				B0CAAB881EBC06A900A1E8BF /* dsa_pub.pem in Resources */,
 				B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */,
 				B0CAAB571EBBC11100A1E8BF /* Main.storyboard in Resources */,
 			);
@@ -419,8 +460,12 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAZQH65APM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Denon\\ VolumeTests",
+				);
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -436,8 +481,12 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAZQH65APM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Denon\\ VolumeTests",
+				);
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -522,6 +571,7 @@
 				B0CAAB731EBBC11200A1E8BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0CAAB741EBBC11200A1E8BF /* Build configuration list for PBXNativeTarget "Denon VolumeTests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +580,7 @@
 				B0CAAB761EBBC11200A1E8BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0CAAB771EBBC11200A1E8BF /* Build configuration list for PBXNativeTarget "Denon VolumeUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +589,7 @@
 				B0CAAB791EBBC11200A1E8BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
