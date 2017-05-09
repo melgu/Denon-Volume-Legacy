@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0B99AB31EC21DD800627E65 /* RegexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B99AB21EC21DD800627E65 /* RegexString.swift */; };
 		B0CAAB501EBBC11100A1E8BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */; };
 		B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */; };
 		B0CAAB571EBBC11100A1E8BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB551EBBC11100A1E8BF /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */,
 				B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */,
 				B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */,
+				B0B99AB21EC21DD800627E65 /* RegexString.swift */,
 				B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */,
 				B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */,
 				B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */,
@@ -313,6 +316,7 @@
 			files = (
 				B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */,
 				B0CAAB7C1EBBD9B000A1E8BF /* MenuViewController.swift in Sources */,
+				B0B99AB31EC21DD800627E65 /* RegexString.swift in Sources */,
 				B0CAAB501EBBC11100A1E8BF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

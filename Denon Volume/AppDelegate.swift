@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let popover = NSPopover()
 	var eventMonitor: EventMonitor?
 	
+	
 	func showPopover(sender: AnyObject?) {
 		if let button = statusItem.button {
 			popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
@@ -61,10 +62,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		eventMonitor?.start()
 	}
 	
+	
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 	}
-	
-	
 }
-
