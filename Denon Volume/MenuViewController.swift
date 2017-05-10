@@ -40,19 +40,7 @@ class MenuViewController: NSViewController {
 			lastTime = Date()
 		}
 		
-		if (volume >= 50) {
-			appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageRed")
-			volumeTextLabel.textColor = NSColor.red
-			volumeLabel.textColor = NSColor.red
-		} else if (volume == 0) {
-			appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageGray")
-			volumeTextLabel.textColor = NSColor.gray
-			volumeLabel.textColor = NSColor.gray
-		} else {
-			appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImage")
-			volumeTextLabel.textColor = NSColor.black
-			volumeLabel.textColor = NSColor.black
-		}
+		colorizeVolumeItems(volume: volume)
 		
 		volumeLabel.integerValue = volume
 		
@@ -99,27 +87,31 @@ class MenuViewController: NSViewController {
 			self.deviceField.textColor = NSColor.black
 			
 			let dataString: String = String(data: data, encoding: String.Encoding.utf8) as String!
-			let volume: Int = Int(Float((dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1])!)!)
+			let volume: Int = 80 - Int(Float((dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1])!)!)
 			
-			self.slider.integerValue = 80 - volume
-			self.volumeLabel.integerValue = 80 - volume
+			self.slider.integerValue = volume
+			self.volumeLabel.integerValue = volume
 			
-			if (volume >= 50) {
-				self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageRed")
-				self.volumeTextLabel.textColor = NSColor.red
-				self.volumeLabel.textColor = NSColor.red
-			} else if (volume == 0) {
-				self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageGray")
-				self.volumeTextLabel.textColor = NSColor.gray
-				self.volumeLabel.textColor = NSColor.gray
-			} else {
-				self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImage")
-				self.volumeTextLabel.textColor = NSColor.black
-				self.volumeLabel.textColor = NSColor.black
-			}
+			self.colorizeVolumeItems(volume: volume)
 		}
 		
 		task.resume()
+	}
+	
+	func colorizeVolumeItems(volume: Int) {
+		if (volume >= 50) {
+			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageRed")
+			self.volumeTextLabel.textColor = NSColor.red
+			self.volumeLabel.textColor = NSColor.red
+		} else if (volume == 0) {
+			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageGray")
+			self.volumeTextLabel.textColor = NSColor.gray
+			self.volumeLabel.textColor = NSColor.gray
+		} else {
+			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImage")
+			self.volumeTextLabel.textColor = NSColor.black
+			self.volumeLabel.textColor = NSColor.black
+		}
 	}
 	
 	
