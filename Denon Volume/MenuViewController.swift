@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import HotKey
 
 class MenuViewController: NSViewController {
 	
@@ -29,9 +28,6 @@ class MenuViewController: NSViewController {
 	@IBAction func slider(_ sender: Any) {
 		sendVolume(volume: Int(slider.intValue))
 	}
-	
-	let hotKeyVolumeUp = HotKey(key: .comma, modifiers: [.control, .option])
-	let hotKeyVolumeDown = HotKey(key: .period, modifiers: [.control, .option])
 	
 	// MARK: - Functions
 	

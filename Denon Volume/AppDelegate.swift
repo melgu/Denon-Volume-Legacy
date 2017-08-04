@@ -7,9 +7,14 @@
 //
 
 import Cocoa
+import HotKey
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+	
+	var hotKeyVolumeUp: HotKey?
+	var hotKeyVolumeDown: HotKey?
+	var hotKeyVolumeWindow: HotKey?
 	
 	let statusItem = NSStatusBar.system.statusItem(withLength: -2)
 	let popover = NSPopover()
@@ -60,6 +65,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			}
 		}
 		eventMonitor?.start()
+		
+		// Set Global Hotkeys
+		hotKeyVolumeUp = HotKey(key: .upArrow, modifiers: [.control, .option])
+		hotKeyVolumeUp?.keyDownHandler = {
+			print("Volume Up")
+		}
+		hotKeyVolumeDown = HotKey(key: .downArrow, modifiers: [.control, .option])
+		hotKeyVolumeDown?.keyDownHandler = {
+			print("Volume Down")
+		}
+		hotKeyVolumeWindow = HotKey(key: .leftArrow, modifiers: [.control, .option])
+		hotKeyVolumeWindow?.keyDownHandler = {
+			print("Volume Window")
+			self.togglePopover(sender: self)
+		}
 	}
 	
 	
