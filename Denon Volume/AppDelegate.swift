@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 	
-	let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+	let statusItem = NSStatusBar.system.statusItem(withLength: -2)
 	let popover = NSPopover()
 	var eventMonitor: EventMonitor?
 	
@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		eventMonitor?.stop()
 	}
 	
-	func togglePopover(sender: AnyObject?) {
+	@objc func togglePopover(sender: AnyObject?) {
 		if popover.isShown {
 			closePopover(sender: sender)
 		} else {
@@ -39,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 	
 	func quit() {
-		NSApplication.shared().terminate(self)
+		NSApplication.shared.terminate(self)
 	}
 	
 	
@@ -48,11 +48,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
-			button.image = NSImage(named: "StatusBarButtonImage")
+			button.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
 			button.action = #selector(togglePopover(sender:))
 		}
 		
-		popover.contentViewController = MenuViewController(nibName: "MenuViewController", bundle: nil)
+		popover.contentViewController = MenuViewController(nibName: NSNib.Name(rawValue: "MenuViewController"), bundle: nil)
 		
 		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
 			if self.popover.isShown {

@@ -7,8 +7,11 @@
 //
 
 import Cocoa
+import HotKey
 
 class MenuViewController: NSViewController {
+	
+	// MARK: - Variables
 	
 	@IBOutlet weak var deviceField: NSTextField!
 	@IBOutlet weak var slider: NSSlider!
@@ -17,15 +20,20 @@ class MenuViewController: NSViewController {
 	
 	var lastTime = Date()
 	
-	let appDelegate = NSApplication.shared().delegate as! AppDelegate
+	let appDelegate = NSApplication.shared.delegate as! AppDelegate
 	
 	@IBAction func quitButton(_ sender: Any) {
-		NSApplication.shared().terminate(self)
+		NSApplication.shared.terminate(self)
 	}
 	
 	@IBAction func slider(_ sender: Any) {
 		sendVolume(volume: Int(slider.intValue))
 	}
+	
+	let hotKeyVolumeUp = HotKey(key: .comma, modifiers: [.control, .option])
+	let hotKeyVolumeDown = HotKey(key: .period, modifiers: [.control, .option])
+	
+	// MARK: - Functions
 	
 	// Volume 0-70, return otherwise (40 for testing)
 	func sendVolume(volume: Int) {
@@ -57,7 +65,9 @@ class MenuViewController: NSViewController {
 //				return
 //			}
 			
-			self.deviceField.textColor = NSColor.black
+			DispatchQueue.main.async {
+				self.deviceField.textColor = NSColor.black
+			}
 		}
 		
 		task.resume()
@@ -84,13 +94,17 @@ class MenuViewController: NSViewController {
 				return
 			}
 			
-			self.deviceField.textColor = NSColor.black
+			DispatchQueue.main.async {
+				self.deviceField.textColor = NSColor.black
+			}
 			
 			let dataString: String = String(data: data, encoding: String.Encoding.utf8) as String!
 			let volume: Int = 80 - Int(Float((dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1])!)!)
 			
-			self.slider.integerValue = volume
-			self.volumeLabel.integerValue = volume
+			DispatchQueue.main.async {
+				self.slider.integerValue = volume
+				self.volumeLabel.integerValue = volume
+			}
 			
 			self.colorizeVolumeItems(volume: volume)
 		}
@@ -99,18 +113,20 @@ class MenuViewController: NSViewController {
 	}
 	
 	func colorizeVolumeItems(volume: Int) {
-		if (volume >= 50) {
-			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageRed")
-			self.volumeTextLabel.textColor = NSColor.red
-			self.volumeLabel.textColor = NSColor.red
-		} else if (volume == 0) {
-			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImageGray")
-			self.volumeTextLabel.textColor = NSColor.gray
-			self.volumeLabel.textColor = NSColor.gray
-		} else {
-			self.appDelegate.statusItem.image = NSImage(named: "StatusBarButtonImage")
-			self.volumeTextLabel.textColor = NSColor.black
-			self.volumeLabel.textColor = NSColor.black
+		DispatchQueue.main.async {
+			if (volume >= 50) {
+				self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImageRed"))
+				self.volumeTextLabel.textColor = NSColor.red
+				self.volumeLabel.textColor = NSColor.red
+			} else if (volume == 0) {
+				self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImageGray"))
+				self.volumeTextLabel.textColor = NSColor.gray
+				self.volumeLabel.textColor = NSColor.gray
+			} else {
+				self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
+				self.volumeTextLabel.textColor = NSColor.black
+				self.volumeLabel.textColor = NSColor.black
+			}
 		}
 	}
 	
