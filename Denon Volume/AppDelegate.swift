@@ -16,8 +16,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 	
 	let denonCommunicator = DenonCommunicator()
 	
-	var hotKeyVolumeUp: HotKey?
-	var hotKeyVolumeDown: HotKey?
+	var hotKeyVolumeUpBig: HotKey?
+	var hotKeyVolumeDownBig: HotKey?
+	var hotKeyVolumeUpLittle: HotKey?
+	var hotKeyVolumeDownLittle: HotKey?
 	var hotKeyVolumeWindow: HotKey?
 	
 	let statusItem = NSStatusBar.system.statusItem(withLength: -2)
@@ -67,12 +69,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 		return denonCommunicator.askVolume(deviceName: deviceName)
 	}
 	
-	func volumeUp() {
-		denonCommunicator.volumeUp()
+	func volumeUpBig() {
+		denonCommunicator.volumeUpBig()
 	}
 	
-	func volumeDown() {
-		denonCommunicator.volumeDown()
+	func volumeDownBig() {
+		denonCommunicator.volumeDownBig()
+	}
+	
+	func volumeUpLittle() {
+		denonCommunicator.volumeUpLittle()
+	}
+	
+	func volumeDownLittle() {
+		denonCommunicator.volumeDownLittle()
+	}
+	
+	func setDeviceName(name: String) {
+		denonCommunicator.setDeviceName(name: name)
 	}
 	
 	
@@ -98,19 +112,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 		
 		
 		// Set Global Hotkeys
-		hotKeyVolumeUp = HotKey(key: .upArrow, modifiers: [.control, .option])
-		hotKeyVolumeUp?.keyDownHandler = {
-			print("Volume Up")
-			self.volumeUp()
+		hotKeyVolumeUpBig = HotKey(key: .upArrow, modifiers: [.control, .option])
+		hotKeyVolumeUpBig?.keyDownHandler = {
+			self.volumeUpBig()
 		}
-		hotKeyVolumeDown = HotKey(key: .downArrow, modifiers: [.control, .option])
-		hotKeyVolumeDown?.keyDownHandler = {
-			print("Volume Down")
-			self.volumeDown()
+		hotKeyVolumeDownBig = HotKey(key: .downArrow, modifiers: [.control, .option])
+		hotKeyVolumeDownBig?.keyDownHandler = {
+			self.volumeDownBig()
 		}
-		hotKeyVolumeWindow = HotKey(key: .leftArrow, modifiers: [.control, .option])
+		hotKeyVolumeUpLittle = HotKey(key: .leftArrow, modifiers: [.control, .option])
+		hotKeyVolumeUpLittle?.keyDownHandler = {
+			self.volumeDownLittle()
+		}
+		hotKeyVolumeDownLittle = HotKey(key: .rightArrow, modifiers: [.control, .option])
+		hotKeyVolumeDownLittle?.keyDownHandler = {
+			self.volumeUpLittle()
+		}
+		hotKeyVolumeWindow = HotKey(key: .return, modifiers: [.control, .option])
 		hotKeyVolumeWindow?.keyDownHandler = {
-			print("Volume Window")
 			self.togglePopover(sender: self)
 		}
 		

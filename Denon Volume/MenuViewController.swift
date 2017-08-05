@@ -19,6 +19,11 @@ class MenuViewController: NSViewController {
 	
 	let appDelegate = NSApplication.shared.delegate as! AppDelegate
 	
+	@IBAction func deviceFieldTextChange(_ sender: Any) {
+		print(deviceField.stringValue)
+		appDelegate.setDeviceName(name: deviceField.stringValue)
+	}
+	
 	@IBAction func quitButton(_ sender: Any) {
 		appDelegate.quit()
 	}
@@ -81,7 +86,7 @@ class MenuViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
 		
-		deviceField.stringValue = "Denon-AVR"
+		appDelegate.setDeviceName(name: deviceField.stringValue)
     }
 	
 	override func viewWillAppear() {
