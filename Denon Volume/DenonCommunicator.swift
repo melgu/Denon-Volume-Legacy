@@ -14,6 +14,8 @@ public class DenonCommunicator {
 	
 	let volumeMinValue = 0
 	let volumeMaxValue = 70
+	let volumeStepsBig = 5
+	let volumeStepsLittle = 1
 	
 	var initDone = false
 	
@@ -33,21 +35,39 @@ public class DenonCommunicator {
 	
 	// MARK: - Functions
 	
-	func volumeUp() {
+	func setDeviceName(name: String) {
+		deviceName = name
+	}
+	
+	func volumeUpBig() {
 		let result = askVolume(deviceName: deviceName)
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume+5)
+			sendVolume(deviceName: deviceName, volume: lastVolume+volumeStepsBig)
 		}
 	}
 	
-	func volumeDown() {
-		print("Down")
-		
+	func volumeDownBig() {
 		let result = askVolume(deviceName: deviceName)
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume-5)
+			sendVolume(deviceName: deviceName, volume: lastVolume-volumeStepsBig)
+		}
+	}
+	
+	func volumeUpLittle() {
+		let result = askVolume(deviceName: deviceName)
+		
+		if result.successful && result.timeInterval {
+			sendVolume(deviceName: deviceName, volume: lastVolume+volumeStepsLittle)
+		}
+	}
+	
+	func volumeDownLittle() {
+		let result = askVolume(deviceName: deviceName)
+		
+		if result.successful && result.timeInterval {
+			sendVolume(deviceName: deviceName, volume: lastVolume-volumeStepsLittle)
 		}
 	}
 	
@@ -74,6 +94,7 @@ public class DenonCommunicator {
 				//print(error!)
 				//self.updateUI(volume: volume, reachable: false)
 				successful = false
+				semaphore.signal()
 				return
 			}
 			
@@ -108,11 +129,13 @@ public class DenonCommunicator {
 				//print(error!)
 				//self.updateUI(volume: self.lastVolume, reachable: false)
 				successful = false
+				semaphore.signal()
 				return
 			}
 			guard let data = data else {
 				print("Data is empty")
 				successful = false
+				semaphore.signal()
 				return
 			}
 			
