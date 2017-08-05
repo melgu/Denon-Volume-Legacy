@@ -14,7 +14,7 @@ public class DenonCommunicator {
 	
 	let volumeMinValue = 0
 	let volumeMaxValue = 70
-	let volumeStepsBig = 5
+	let volumeStepsBig = 3
 	let volumeStepsLittle = 1
 	
 	var initDone = false
