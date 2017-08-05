@@ -34,13 +34,10 @@ public class DenonCommunicator {
 	// MARK: - Functions
 	
 	func volumeUp() {
-		print("Up")
-		
 		let result = askVolume(deviceName: deviceName)
 		
 		if result.successful && result.timeInterval {
-			let sendResult = sendVolume(deviceName: deviceName, volume: lastVolume+5)
-			print(sendResult.successful)
+			sendVolume(deviceName: deviceName, volume: lastVolume+5)
 		}
 	}
 	
@@ -49,11 +46,8 @@ public class DenonCommunicator {
 		
 		let result = askVolume(deviceName: deviceName)
 		
-		print(result.volume)
-		
 		if result.successful && result.timeInterval {
-			let sendResult = sendVolume(deviceName: deviceName, volume: lastVolume-5)
-			print(sendResult.successful)
+			sendVolume(deviceName: deviceName, volume: lastVolume-5)
 		}
 	}
 	
@@ -61,7 +55,7 @@ public class DenonCommunicator {
 	// Volume 0-70, return otherwise (40 for testing)
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
-	func sendVolume(deviceName: String, volume: Int) -> (successful: Bool, timeInterval: Bool) {
+	@discardableResult func sendVolume(deviceName: String, volume: Int) -> (successful: Bool, timeInterval: Bool) {
 		if (Date().timeIntervalSince(lastTimeSend) < 0.05) {
 			return (true, false)
 		} else {
@@ -96,7 +90,7 @@ public class DenonCommunicator {
 	
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
-	func askVolume(deviceName: String) -> (volume: Int, successful: Bool, timeInterval: Bool) {
+	@discardableResult func askVolume(deviceName: String) -> (volume: Int, successful: Bool, timeInterval: Bool) {
 		
 		if (Date().timeIntervalSince(lastTimeReceive) < 0.05) {
 			return (lastVolume, true, false)
