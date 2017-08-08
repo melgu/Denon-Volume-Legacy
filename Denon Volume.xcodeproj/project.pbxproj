@@ -10,8 +10,6 @@
 		B0B99AB31EC21DD800627E65 /* RegexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B99AB21EC21DD800627E65 /* RegexString.swift */; };
 		B0C83E161F3506AB00E624A7 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C83E151F3506A000E624A7 /* Sparkle.framework */; };
 		B0C83E171F3506AB00E624A7 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0C83E151F3506A000E624A7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C83E181F3506CB00E624A7 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C83E121F3502FB00E624A7 /* HotKey.framework */; };
-		B0C83E191F3506CB00E624A7 /* HotKey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0C83E121F3502FB00E624A7 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0CAAB501EBBC11100A1E8BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */; };
 		B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */; };
 		B0CAAB571EBBC11100A1E8BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB551EBBC11100A1E8BF /* Main.storyboard */; };
@@ -21,6 +19,8 @@
 		B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */; };
 		B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */; };
 		B0CAAB881EBC06A900A1E8BF /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB871EBC06A900A1E8BF /* dsa_pub.pem */; };
+		B0DB1C591F3A072C0037ABC3 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; };
+		B0DB1C5A1F3A072C0037ABC3 /* HotKey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0EA28331F3526070033A9D8 /* DenonCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -48,7 +48,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0C83E191F3506CB00E624A7 /* HotKey.framework in CopyFiles */,
+				B0DB1C5A1F3A072C0037ABC3 /* HotKey.framework in CopyFiles */,
 				B0C83E171F3506AB00E624A7 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,8 +56,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B02B15F51F3A062C00C4135E /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Framworks/HotKey.framework; sourceTree = SOURCE_ROOT; };
 		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
-		B0C83E121F3502FB00E624A7 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Framworks/HotKey.framework; sourceTree = SOURCE_ROOT; };
 		B0C83E151F3506A000E624A7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Framworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C83E181F3506CB00E624A7 /* HotKey.framework in Frameworks */,
+				B0DB1C591F3A072C0037ABC3 /* HotKey.framework in Frameworks */,
 				B0C83E161F3506AB00E624A7 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,8 +165,8 @@
 		B0CAAB811EBC043600A1E8BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B02B15F51F3A062C00C4135E /* HotKey.framework */,
 				B0C83E151F3506A000E624A7 /* Sparkle.framework */,
-				B0C83E121F3502FB00E624A7 /* HotKey.framework */,
 			);
 			name = Frameworks;
 			path = "Denon VolumeTests";
@@ -410,6 +410,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -466,6 +470,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Framworks",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -491,7 +499,6 @@
 				DEVELOPMENT_TEAM = FAZQH65APM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Denon\\ VolumeTests",
 					"$(PROJECT_DIR)/Framworks",
 				);
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
@@ -514,7 +521,6 @@
 				DEVELOPMENT_TEAM = FAZQH65APM;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Denon\\ VolumeTests",
 					"$(PROJECT_DIR)/Framworks",
 				);
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
