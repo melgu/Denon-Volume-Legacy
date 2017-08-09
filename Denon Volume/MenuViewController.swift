@@ -36,7 +36,8 @@ class MenuViewController: NSViewController {
 	
 	// Volume 0-70, return otherwise (40 for testing)
 	func sendVolume(volume: Int) {
-		let result = appDelegate.sendVolume(deviceName: deviceField.stringValue, volume: volume)
+		appDelegate.setDeviceName(name: deviceField.stringValue)
+		let result = appDelegate.sendVolume(volume: volume)
 		
 		if result.timeInterval {
 			self.updateUI(volume: volume, reachable: result.successful)
@@ -44,7 +45,8 @@ class MenuViewController: NSViewController {
 	}
 	
 	func askVolume() {
-		let result = appDelegate.askVolume(deviceName: deviceField.stringValue)
+		appDelegate.setDeviceName(name: deviceField.stringValue)
+		let result = appDelegate.askVolume()
 		
 		if result.timeInterval {
 			self.updateUI(volume: result.volume, reachable: result.successful)

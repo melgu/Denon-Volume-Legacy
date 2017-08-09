@@ -40,42 +40,46 @@ public class DenonCommunicator {
 	}
 	
 	func volumeUpBig() {
-		let result = askVolume(deviceName: deviceName)
+		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume+volumeStepsBig)
+			sendVolume(volume: lastVolume+volumeStepsBig)
 		}
+		print(lastVolume)
 	}
 	
 	func volumeDownBig() {
-		let result = askVolume(deviceName: deviceName)
+		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume-volumeStepsBig)
+			sendVolume(volume: lastVolume-volumeStepsBig)
 		}
+		print(lastVolume)
 	}
 	
 	func volumeUpLittle() {
-		let result = askVolume(deviceName: deviceName)
+		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume+volumeStepsLittle)
+			sendVolume(volume: lastVolume+volumeStepsLittle)
 		}
+		print(lastVolume)
 	}
 	
 	func volumeDownLittle() {
-		let result = askVolume(deviceName: deviceName)
+		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(deviceName: deviceName, volume: lastVolume-volumeStepsLittle)
+			sendVolume(volume: lastVolume-volumeStepsLittle)
 		}
+		print(lastVolume)
 	}
 	
 	
 	// Volume 0-70, return otherwise (40 for testing)
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
-	@discardableResult func sendVolume(deviceName: String, volume: Int) -> (successful: Bool, timeInterval: Bool) {
+	@discardableResult func sendVolume(volume: Int) -> (successful: Bool, timeInterval: Bool) {
 		if (Date().timeIntervalSince(lastTimeSend) < 0.05) {
 			return (true, false)
 		} else {
@@ -106,12 +110,14 @@ public class DenonCommunicator {
 		task.resume()
 		semaphore.wait()
 		
+		print(lastVolume)
+		
 		return (successful, true)
 	}
 	
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
-	@discardableResult func askVolume(deviceName: String) -> (volume: Int, successful: Bool, timeInterval: Bool) {
+	@discardableResult func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
 		
 		if (Date().timeIntervalSince(lastTimeReceive) < 0.05) {
 			return (lastVolume, true, false)
@@ -148,6 +154,8 @@ public class DenonCommunicator {
 		
 		task.resume()
 		semaphore.wait()
+		
+		print(lastVolume)
 		
 		return (lastVolume, successful, true)
 	}

@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Denon Volume/DenonCommunicator.swift"
-            timestampString = "523592231.299501"
+            timestampString = "523958754.805545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "askVolume(deviceName:)"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "askVolume()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Denon Volume/DenonCommunicator.swift"
-            timestampString = "523592231.299918"
+            timestampString = "523958754.805926"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
-            landmarkName = "askVolume(deviceName:)"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "askVolume()"
             landmarkType = "7">
             <Locations>
                <Location
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Denon Volume/DenonCommunicator.swift"
-            timestampString = "523592231.300213"
+            timestampString = "523958754.806178"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "volumeDownBig()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Denon Volume/DenonCommunicator.swift"
-            timestampString = "523592231.300482"
+            timestampString = "523958754.806423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "42"
