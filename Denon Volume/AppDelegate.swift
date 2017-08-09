@@ -10,22 +10,65 @@ import Cocoa
 import HotKey
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	// MARK: - Variables
 	
 	let denonCommunicator = DenonCommunicator()
 	
+	// Global Hotkeys
 	var hotKeyVolumeUpBig: HotKey?
 	var hotKeyVolumeDownBig: HotKey?
 	var hotKeyVolumeUpLittle: HotKey?
 	var hotKeyVolumeDownLittle: HotKey?
 	var hotKeyVolumeWindow: HotKey?
 	
+	// Status Bar
 	let statusItem = NSStatusBar.system.statusItem(withLength: -2)
 	let popover = NSPopover()
 	var eventMonitor: EventMonitor?
 	
+	// Touch Bar
+	static let volumeUpIdentifier = NSTouchBarItem.Identifier("Volume Up")
+	static let volumeDownIdentifier = NSTouchBarItem.Identifier("Volume Down")
+	static let volumeSliderIdentifier = NSTouchBarItem.Identifier("Volume Slider")
+	static let controlBarIconIdentifier = NSTouchBarItem.Identifier("Control Bar Icon")
+	
+	var groupTouchBar: NSTouchBar?
+	
+	// MARK: - Func: Touch Bar
+	@objc func volumeSlider(sender: NSSliderTouchBarItem) {
+		sendVolume(volume: sender.slider.integerValue)
+	}
+	@objc func presentTouchBarMenu() {
+		print("Present")
+		NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, systemTrayItemIdentifier: AppDelegate.controlBarIconIdentifier.rawValue)
+	}
+	
+	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? { switch identifier {
+	case AppDelegate.volumeUpIdentifier:
+		let item = NSCustomTouchBarItem(identifier: identifier)
+		item.view = NSButton(title: "Volume Up", target: self, action: #selector(volumeUpBig))
+		return item
+	case AppDelegate.volumeDownIdentifier:
+		let item = NSCustomTouchBarItem(identifier: identifier)
+		item.view = NSButton(title: "Volume Down", target: self, action: #selector(volumeDownBig))
+		return item
+	case AppDelegate.volumeSliderIdentifier:
+		let item = NSSliderTouchBarItem(identifier: identifier)
+		item.action = #selector(volumeSlider)
+		item.slider.minValue = Double(denonCommunicator.volumeMinValue)
+		item.slider.maxValue = Double(denonCommunicator.volumeMaxValue)
+		return item
+	case AppDelegate.controlBarIconIdentifier:
+		let item = NSCustomTouchBarItem(identifier: identifier)
+		item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
+		return item
+	default:
+		print("nil")
+		return nil
+		}
+	}
 	
 	// MARK: - Func: Popover
 	
@@ -61,19 +104,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 	
 	// MARK: - DenonCommunicator Proxies
 	
-	func sendVolume(deviceName: String, volume: Int) -> (successful: Bool, timeInterval: Bool) {
-		return denonCommunicator.sendVolume(deviceName: deviceName, volume: volume)
+	@discardableResult func sendVolume(volume: Int) -> (successful: Bool, timeInterval: Bool) {
+		return denonCommunicator.sendVolume(volume: volume)
 	}
 	
-	func askVolume(deviceName: String) -> (volume: Int, successful: Bool, timeInterval: Bool) {
-		return denonCommunicator.askVolume(deviceName: deviceName)
+	func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
+		return denonCommunicator.askVolume()
 	}
 	
-	func volumeUpBig() {
+	@objc func volumeUpBig() {
 		denonCommunicator.volumeUpBig()
 	}
 	
-	func volumeDownBig() {
+	@objc func volumeDownBig() {
 		denonCommunicator.volumeDownBig()
 	}
 	
@@ -132,6 +175,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 		hotKeyVolumeWindow?.keyDownHandler = {
 			self.togglePopover(sender: self)
 		}
+		
+		
+		// Touch Bar
+		DFRSystemModalShowsCloseBoxWhenFrontMost(true)
+		
+		groupTouchBar = NSTouchBar()
+		groupTouchBar?.defaultItemIdentifiers = [AppDelegate.volumeDownIdentifier, AppDelegate.volumeUpIdentifier, AppDelegate.volumeSliderIdentifier]
+		groupTouchBar?.delegate = self
+		
+		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
+		controlBarIcon.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
+		
+		presentTouchBarMenu()
+		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		
 	}
 	
