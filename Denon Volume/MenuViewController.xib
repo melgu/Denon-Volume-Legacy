@@ -26,7 +26,7 @@
                     <constraints>
                         <constraint firstAttribute="width" constant="156" id="V5u-xc-1SS"/>
                     </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="Denon-AVR" placeholderString="Denon-AVR" drawsBackground="YES" id="vld-ru-tfw">
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="Denon-AVR" placeholderString="Denon-AVR" drawsBackground="YES" usesSingleLineMode="YES" id="vld-ru-tfw">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -35,7 +35,7 @@
                         </allowedInputSourceLocales>
                     </textFieldCell>
                     <connections>
-                        <action selector="deviceFieldTextChange:" target="-2" id="yNx-9S-fzC"/>
+                        <action selector="deviceFieldTextChange:" target="-2" id="MIV-PP-8gM"/>
                         <binding destination="eMq-Gr-TRo" name="value" keyPath="values.deviceName" id="VM4-SJ-h2C"/>
                     </connections>
                 </textField>
