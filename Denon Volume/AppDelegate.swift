@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	// MARK: - Variables
 	
 	let denonCommunicator = DenonCommunicator()
+	var menuViewController: MenuViewController?
 	
 	// Global Hotkeys
 	var hotKeyVolumeUpBig: HotKey?
@@ -36,6 +37,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	var groupTouchBar: NSTouchBar?
 	
+	let tbSlider = NSSliderTouchBarItem(identifier: volumeSliderIdentifier)
+	
 	// MARK: - Func: Touch Bar
 	@objc func volumeSlider(sender: NSSliderTouchBarItem) {
 		sendVolume(volume: sender.slider.integerValue)
@@ -55,11 +58,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		item.view = NSButton(title: "Volume Down", target: self, action: #selector(volumeDownBig))
 		return item
 	case AppDelegate.volumeSliderIdentifier:
-		let item = NSSliderTouchBarItem(identifier: identifier)
-		item.action = #selector(volumeSlider)
-		item.slider.minValue = Double(denonCommunicator.volumeMinValue)
-		item.slider.maxValue = Double(denonCommunicator.volumeMaxValue)
-		return item
+		return self.tbSlider
 	case AppDelegate.controlBarIconIdentifier:
 		let item = NSCustomTouchBarItem(identifier: identifier)
 		item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
@@ -96,6 +95,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	
 	// MARK: - Func: Other
+	
+	func updateUI(volume: Int, reachable: Bool) {
+		DispatchQueue.main.async {
+			self.tbSlider.slider.integerValue = volume
+			self.menuViewController?.updateUI(volume: volume, reachable: reachable)
+		}
+	}
 	
 	func quit() {
 		NSApplication.shared.terminate(self)
@@ -138,6 +144,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		// Insert code here to initialize your application
 		
+		denonCommunicator.appDelegate = self
+		_ = denonCommunicator.askVolume()
+		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
 			button.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
@@ -154,7 +163,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		eventMonitor?.start()
 		
 		
+		// TODO: Broken!
 		// Set Global Hotkeys
+		
 		hotKeyVolumeUpBig = HotKey(key: .upArrow, modifiers: [.control, .option])
 		hotKeyVolumeUpBig?.keyDownHandler = {
 			self.volumeUpBig()
@@ -178,6 +189,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		
 		
 		// Touch Bar
+		tbSlider.action = #selector(volumeSlider)
+		tbSlider.slider.minValue = Double(denonCommunicator.volumeMinValue)
+		tbSlider.slider.maxValue = Double(denonCommunicator.volumeMaxValue)
+		
 		DFRSystemModalShowsCloseBoxWhenFrontMost(true)
 		
 		groupTouchBar = NSTouchBar()

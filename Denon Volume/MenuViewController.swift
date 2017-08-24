@@ -37,20 +37,12 @@ class MenuViewController: NSViewController {
 	// Volume 0-70, return otherwise (40 for testing)
 	func sendVolume(volume: Int) {
 		appDelegate.setDeviceName(name: deviceField.stringValue)
-		let result = appDelegate.sendVolume(volume: volume)
-		
-		if result.timeInterval {
-			self.updateUI(volume: volume, reachable: result.successful)
-		}
+		_ = appDelegate.sendVolume(volume: volume)
 	}
 	
 	func askVolume() {
 		appDelegate.setDeviceName(name: deviceField.stringValue)
-		let result = appDelegate.askVolume()
-		
-		if result.timeInterval {
-			self.updateUI(volume: result.volume, reachable: result.successful)
-		}
+		_ = appDelegate.askVolume()
 	}
 	
 	func updateUI(volume: Int, reachable: Bool) {
@@ -89,6 +81,7 @@ class MenuViewController: NSViewController {
         // Do view setup here.
 		
 		appDelegate.setDeviceName(name: deviceField.stringValue)
+		appDelegate.menuViewController = self
     }
 	
 	override func viewWillAppear() {
