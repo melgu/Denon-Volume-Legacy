@@ -91,8 +91,6 @@ public class DenonCommunicator {
 			lastTimeSend = Date()
 		}
 		
-		//updateUI(volume: volume, reachable: true)
-		
 		let url = URL(string: "http://\(deviceName)/goform/formiPhoneAppVolume.xml?1+-\(80-volume)")
 		var successful = true
 		
@@ -100,8 +98,7 @@ public class DenonCommunicator {
 		
 		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
 			guard error == nil else {
-				//print(error!)
-				//self.updateUI(volume: volume, reachable: false)
+				print(error!)
 				successful = false
 				semaphore.signal()
 				return
@@ -137,8 +134,7 @@ public class DenonCommunicator {
 		
 		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
 			guard error == nil else {
-				//print(error!)
-				//self.updateUI(volume: self.lastVolume, reachable: false)
+				print(error!)
 				successful = false
 				semaphore.signal()
 				return

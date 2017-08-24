@@ -18,6 +18,8 @@
 		B0CAAB7C1EBBD9B000A1E8BF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */; };
 		B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */; };
 		B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */; };
+		B0D024431F4F5B0300CC10D8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B0D024421F4F5A9600CC10D8 /* Credits.rtf */; };
+		B0D024441F4F5B0800CC10D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0DB1C5B1F3A39F80037ABC3 /* dsa_pub.pem */; };
 		B0DB1C591F3A072C0037ABC3 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; };
 		B0DB1C5A1F3A072C0037ABC3 /* HotKey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */; };
@@ -74,6 +76,7 @@
 		B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
 		B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
+		B0D024421F4F5A9600CC10D8 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		B0DB1C5B1F3A39F80037ABC3 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = "Sparkle Certs/dsa_pub.pem"; sourceTree = SOURCE_ROOT; };
 		B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
@@ -182,6 +185,7 @@
 		B0CAAB861EBC068B00A1E8BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B0D024421F4F5A9600CC10D8 /* Credits.rtf */,
 				B0DB1C5B1F3A39F80037ABC3 /* dsa_pub.pem */,
 			);
 			name = Resources;
@@ -305,6 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D024441F4F5B0800CC10D8 /* dsa_pub.pem in Resources */,
+				B0D024431F4F5B0300CC10D8 /* Credits.rtf in Resources */,
 				B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */,
 				B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */,
 				B0CAAB571EBBC11100A1E8BF /* Main.storyboard in Resources */,
