@@ -103,21 +103,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	// MARK: - Func: Other
 	
-	func updateUI(volume: Int, reachable: Bool) {
+	func updateUI(volume: Int, state: Bool, reachable: Bool) {
 		DispatchQueue.main.async {
-			self.tbControlStripButton.title = "\(volume)"
 			self.tbSlider.slider.integerValue = volume
 			self.tbLabelTextField.integerValue = volume
 			
 			if (volume >= 50) {
 				self.tbLabelTextField.textColor = .red
+				let style = NSMutableParagraphStyle()
+				style.alignment = .center
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedStringKey.foregroundColor: NSColor.red, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 15)])
 			} else if (volume == 0) {
 				self.tbLabelTextField.textColor = .gray
+				let style = NSMutableParagraphStyle()
+				style.alignment = .center
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedStringKey.foregroundColor: NSColor.gray, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 15)])
 			} else {
 				self.tbLabelTextField.textColor = .white
+				self.tbControlStripButton.title = "\(volume)"
 			}
 			
-			self.menuViewController?.updateUI(volume: volume, reachable: reachable)
+			self.menuViewController?.updateUI(volume: volume, state: state, reachable: reachable)
 		}
 	}
 	
@@ -127,6 +133,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	
 	// MARK: - DenonCommunicator Proxies
+	
+	func sendPowerState(state: Bool) {
+		denonCommunicator.sendPowerState(state: state)
+	}
 	
 	@discardableResult func sendVolume(volume: Int) -> (successful: Bool, timeInterval: Bool) {
 		return denonCommunicator.sendVolume(volume: volume)
