@@ -33,11 +33,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	static let volumeUpIdentifier = NSTouchBarItem.Identifier("Volume Up")
 	static let volumeDownIdentifier = NSTouchBarItem.Identifier("Volume Down")
 	static let volumeSliderIdentifier = NSTouchBarItem.Identifier("Volume Slider")
+	static let volumeLabelIdentifier = NSTouchBarItem.Identifier("Volume Label")
 	static let controlBarIconIdentifier = NSTouchBarItem.Identifier("Control Bar Icon")
 	
 	var groupTouchBar: NSTouchBar?
 	
 	let tbSlider = NSSliderTouchBarItem(identifier: volumeSliderIdentifier)
+	var tbLabelTextField: NSTextField = NSTextField(labelWithString: "00")
 	
 	// MARK: - Func: Touch Bar
 	@objc func volumeSlider(sender: NSSliderTouchBarItem) {
@@ -59,6 +61,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		return item
 	case AppDelegate.volumeSliderIdentifier:
 		return self.tbSlider
+	case AppDelegate.volumeLabelIdentifier:
+		let item = NSCustomTouchBarItem(identifier: identifier)
+		item.view = tbLabelTextField
+		return item
 	case AppDelegate.controlBarIconIdentifier:
 		let item = NSCustomTouchBarItem(identifier: identifier)
 		item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
@@ -99,6 +105,16 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	func updateUI(volume: Int, reachable: Bool) {
 		DispatchQueue.main.async {
 			self.tbSlider.slider.integerValue = volume
+			self.tbLabelTextField.integerValue = volume
+			
+			if (volume >= 50) {
+				self.tbLabelTextField.textColor = .red
+			} else if (volume == 0) {
+				self.tbLabelTextField.textColor = .gray
+			} else {
+				self.tbLabelTextField.textColor = .white
+			}
+			
 			self.menuViewController?.updateUI(volume: volume, reachable: reachable)
 		}
 	}
@@ -195,7 +211,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		DFRSystemModalShowsCloseBoxWhenFrontMost(true)
 		
 		groupTouchBar = NSTouchBar()
-		groupTouchBar?.defaultItemIdentifiers = [AppDelegate.volumeDownIdentifier, AppDelegate.volumeUpIdentifier, AppDelegate.volumeSliderIdentifier]
+		groupTouchBar?.defaultItemIdentifiers = [AppDelegate.volumeDownIdentifier, AppDelegate.volumeUpIdentifier, AppDelegate.volumeSliderIdentifier, AppDelegate.volumeLabelIdentifier]
 		groupTouchBar?.delegate = self
 		
 		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
