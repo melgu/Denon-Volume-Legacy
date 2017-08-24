@@ -16,6 +16,7 @@ class MenuViewController: NSViewController {
 	@IBOutlet weak var slider: NSSlider!
 	@IBOutlet weak var volumeLabel: NSTextField!
 	@IBOutlet weak var volumeTextLabel: NSTextField!
+	@IBOutlet weak var onOffToggle: NSButton!
 	
 	let appDelegate = NSApplication.shared.delegate as! AppDelegate
 	
@@ -32,12 +33,17 @@ class MenuViewController: NSViewController {
 		sendVolume(volume: Int(slider.intValue))
 	}
 	
+	@IBAction func onOffToggle(_ sender: Any) {
+		let state = (onOffToggle.state.rawValue == 1) ? true : false
+		appDelegate.sendPowerState(state: state)
+	}
+	
 	// MARK: - Functions
 	
 	// Volume 0-70, return otherwise (40 for testing)
 	func sendVolume(volume: Int) {
 		appDelegate.setDeviceName(name: deviceField.stringValue)
-		_ = appDelegate.sendVolume(volume: volume)
+		appDelegate.sendVolume(volume: volume)
 	}
 	
 	func askVolume() {
@@ -45,11 +51,17 @@ class MenuViewController: NSViewController {
 		_ = appDelegate.askVolume()
 	}
 	
-	func updateUI(volume: Int, reachable: Bool) {
+	func updateUI(volume: Int, state: Bool, reachable: Bool) {
 		if reachable {
 			self.deviceField.textColor = NSColor.black
 		} else {
 			self.deviceField.textColor = NSColor.red
+		}
+		
+		if state {
+			self.onOffToggle.state = NSControl.StateValue(1)
+		} else {
+			self.onOffToggle.state = NSControl.StateValue(0)
 		}
 		
 		self.slider.integerValue = volume

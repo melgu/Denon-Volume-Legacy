@@ -23,21 +23,22 @@ public class DenonCommunicator {
 	var deviceName = "Denon-AVR"
 	var lastTimeSend = Date()
 	var lastTimeReceive = Date()
-	var lastVolume = 0 {
-		didSet(newValue) {
-			if newValue < volumeMinValue {
-				lastVolume = volumeMinValue
-			} else if volumeMaxValue < newValue {
-				lastVolume = volumeMaxValue
-			}
-		}
-	}
+	var lastState = false
+	var lastVolume = 0
 	
 	
 	// MARK: - Functions
 	
-	func updateUI(volume: Int, reachable: Bool) {
-		appDelegate?.updateUI(volume: volume, reachable: reachable)
+	func enforceLastVolumeBoundaries() {
+		if lastVolume < volumeMinValue {
+			lastVolume = volumeMinValue
+		} else if volumeMaxValue < lastVolume {
+			lastVolume = volumeMaxValue
+		}
+	}
+	
+	func updateUI(volume: Int, state: Bool, reachable: Bool) {
+		appDelegate?.updateUI(volume: volume, state: state, reachable: reachable)
 	}
 	
 	func setDeviceName(name: String) {
@@ -48,36 +49,40 @@ public class DenonCommunicator {
 		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(volume: lastVolume+volumeStepsBig)
+			lastVolume += volumeStepsBig
+			enforceLastVolumeBoundaries()
+			sendVolume(volume: lastVolume)
 		}
-		print(lastVolume)
 	}
 	
 	func volumeDownBig() {
 		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(volume: lastVolume-volumeStepsBig)
+			lastVolume -= volumeStepsBig
+			enforceLastVolumeBoundaries()
+			sendVolume(volume: lastVolume)
 		}
-		print(lastVolume)
 	}
 	
 	func volumeUpLittle() {
 		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(volume: lastVolume+volumeStepsLittle)
+			lastVolume += volumeStepsLittle
+			enforceLastVolumeBoundaries()
+			sendVolume(volume: lastVolume)
 		}
-		print(lastVolume)
 	}
 	
 	func volumeDownLittle() {
 		let result = askVolume()
 		
 		if result.successful && result.timeInterval {
-			sendVolume(volume: lastVolume-volumeStepsLittle)
+			lastVolume -= volumeStepsLittle
+			enforceLastVolumeBoundaries()
+			sendVolume(volume: lastVolume)
 		}
-		print(lastVolume)
 	}
 	
 	
@@ -112,7 +117,7 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
-		self.updateUI(volume: volume, reachable: successful)
+		self.updateUI(volume: volume, state: lastState, reachable: successful)
 		
 		return (successful, true)
 	}
@@ -147,7 +152,16 @@ public class DenonCommunicator {
 			}
 			
 			let dataString: String = String(data: data, encoding: String.Encoding.utf8) as String!
-			self.lastVolume = 80 - Int(Float((dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1])!)!)
+			let matchedStringState = dataString.matchingStrings(regex: "<Power><value>(.*)<\\/value><\\/Power>").first![1]
+			if matchedStringState == "ON" {
+				self.lastState = true
+			}
+			
+			var matchedStringVolume = dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first![1]
+			if matchedStringVolume == "-" {
+				matchedStringVolume = "80"
+			}
+			self.lastVolume = 80 - Int(Float(matchedStringVolume)!)
 			
 			semaphore.signal()
 		}
@@ -156,8 +170,37 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
-		self.updateUI(volume: self.lastVolume, reachable: successful)
+		self.updateUI(volume: self.lastVolume, state: lastState, reachable: successful)
 		
 		return (lastVolume, successful, true)
+	}
+	
+	func sendPowerState(state: Bool) -> Bool {
+		lastState = state
+		let power = state ? "PowerOn" : "PowerStandby"
+		
+		let url = URL(string: "http://\(deviceName)/goform/formiPhoneAppPower.xml?1+\(power)")
+		var successful = true
+		
+		let semaphore = DispatchSemaphore(value: 0)
+		
+		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+			guard error == nil else {
+				print(error!)
+				successful = false
+				semaphore.signal()
+				return
+			}
+			
+			semaphore.signal()
+		}
+		
+		task.resume()
+		semaphore.wait()
+		
+		print(lastVolume)
+		self.updateUI(volume: lastVolume, state: state, reachable: successful)
+		
+		return successful
 	}
 }
