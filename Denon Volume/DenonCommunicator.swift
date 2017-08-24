@@ -11,6 +11,7 @@ import Foundation
 public class DenonCommunicator {
 	
 	// MARK: - Variables
+	var appDelegate: AppDelegate?
 	
 	let volumeMinValue = 0
 	let volumeMaxValue = 70
@@ -34,6 +35,10 @@ public class DenonCommunicator {
 	
 	
 	// MARK: - Functions
+	
+	func updateUI(volume: Int, reachable: Bool) {
+		appDelegate?.updateUI(volume: volume, reachable: reachable)
+	}
 	
 	func setDeviceName(name: String) {
 		deviceName = name
@@ -103,7 +108,6 @@ public class DenonCommunicator {
 			}
 			
 			self.lastVolume = volume
-			//self.updateUI(volume: volume, reachable: true)
 			semaphore.signal()
 		}
 		
@@ -111,6 +115,7 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
+		self.updateUI(volume: volume, reachable: successful)
 		
 		return (successful, true)
 	}
@@ -148,7 +153,6 @@ public class DenonCommunicator {
 			let dataString: String = String(data: data, encoding: String.Encoding.utf8) as String!
 			self.lastVolume = 80 - Int(Float((dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1])!)!)
 			
-			//self.updateUI(volume: self.lastVolume, reachable: true)
 			semaphore.signal()
 		}
 		
@@ -156,8 +160,8 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
+		self.updateUI(volume: self.lastVolume, reachable: successful)
 		
 		return (lastVolume, successful, true)
 	}
 }
-
