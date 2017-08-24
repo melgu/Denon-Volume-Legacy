@@ -163,26 +163,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		eventMonitor?.start()
 		
 		
-		// TODO: Broken!
 		// Set Global Hotkeys
 		
-		hotKeyVolumeUpBig = HotKey(key: .upArrow, modifiers: [.control, .option])
+		hotKeyVolumeUpBig = HotKey(keyCombo: KeyCombo(key: .upArrow, modifiers: [.control, .option]))
 		hotKeyVolumeUpBig?.keyDownHandler = {
 			self.volumeUpBig()
 		}
-		hotKeyVolumeDownBig = HotKey(key: .downArrow, modifiers: [.control, .option])
+		hotKeyVolumeDownBig = HotKey(keyCombo: KeyCombo(key: .downArrow, modifiers: [.control, .option]))
 		hotKeyVolumeDownBig?.keyDownHandler = {
 			self.volumeDownBig()
 		}
-		hotKeyVolumeUpLittle = HotKey(key: .leftArrow, modifiers: [.control, .option])
+		hotKeyVolumeUpLittle = HotKey(keyCombo: KeyCombo(key: .leftArrow, modifiers: [.control, .option]))
 		hotKeyVolumeUpLittle?.keyDownHandler = {
 			self.volumeDownLittle()
 		}
-		hotKeyVolumeDownLittle = HotKey(key: .rightArrow, modifiers: [.control, .option])
+		hotKeyVolumeDownLittle = HotKey(keyCombo: KeyCombo(key: .rightArrow, modifiers: [.control, .option]))
 		hotKeyVolumeDownLittle?.keyDownHandler = {
 			self.volumeUpLittle()
 		}
-		hotKeyVolumeWindow = HotKey(key: .return, modifiers: [.control, .option])
+		hotKeyVolumeWindow = HotKey(keyCombo: KeyCombo(key: .return, modifiers: [.control, .option]))
 		hotKeyVolumeWindow?.keyDownHandler = {
 			self.togglePopover(sender: self)
 		}
