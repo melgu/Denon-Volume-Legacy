@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13178.6"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13189.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -93,14 +93,29 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-Dx-iNs">
+                    <rect key="frame" x="14" y="98" width="30" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="18" id="2Ms-Ow-s1J"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="i" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Zfc-rY-yz0">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="orderFrontStandardAboutPanel:" target="-1" id="QIe-3R-7QK"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
+                <constraint firstItem="xY4-ad-Udm" firstAttribute="top" secondItem="iaa-Dx-iNs" secondAttribute="bottom" constant="6" id="30o-SG-0uS"/>
                 <constraint firstItem="9Tq-Dh-j5G" firstAttribute="top" secondItem="WNf-i7-eXx" secondAttribute="bottom" constant="6" id="8Sd-Dw-Vx8"/>
                 <constraint firstItem="WNf-i7-eXx" firstAttribute="top" secondItem="xY4-ad-Udm" secondAttribute="bottom" constant="8" id="9Jk-q3-wmS"/>
                 <constraint firstItem="xY4-ad-Udm" firstAttribute="top" secondItem="QQq-ig-Q9L" secondAttribute="bottom" constant="8" id="Cd4-54-5Yj"/>
                 <constraint firstItem="zey-qy-EKy" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="FL5-9X-nBh"/>
                 <constraint firstItem="QQq-ig-Q9L" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="Ioz-1f-gnG"/>
                 <constraint firstItem="xY4-ad-Udm" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="O7s-bP-T93"/>
+                <constraint firstItem="QQq-ig-Q9L" firstAttribute="leading" secondItem="iaa-Dx-iNs" secondAttribute="trailing" constant="15" id="RVb-Te-aFY"/>
                 <constraint firstItem="9Tq-Dh-j5G" firstAttribute="leading" secondItem="zey-qy-EKy" secondAttribute="trailing" constant="32" id="ZNI-gG-jqu"/>
                 <constraint firstItem="zey-qy-EKy" firstAttribute="top" secondItem="WNf-i7-eXx" secondAttribute="bottom" constant="8" id="bGI-Rm-eru"/>
                 <constraint firstItem="QQq-ig-Q9L" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="dmM-Oy-7Db"/>
