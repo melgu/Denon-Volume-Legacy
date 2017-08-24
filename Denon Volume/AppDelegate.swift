@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	var groupTouchBar: NSTouchBar?
 	
+	var tbControlStripButton = NSButton(title: "00", target: self, action: #selector(presentTouchBarMenu))
 	let tbSlider = NSSliderTouchBarItem(identifier: volumeSliderIdentifier)
 	var tbLabelTextField: NSTextField = NSTextField(labelWithString: "00")
 	
@@ -104,6 +105,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	func updateUI(volume: Int, reachable: Bool) {
 		DispatchQueue.main.async {
+			self.tbControlStripButton.title = "\(volume)"
 			self.tbSlider.slider.integerValue = volume
 			self.tbLabelTextField.integerValue = volume
 			
@@ -215,7 +217,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		groupTouchBar?.delegate = self
 		
 		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
-		controlBarIcon.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
+		controlBarIcon.view = tbControlStripButton
 		
 		presentTouchBarMenu()
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
