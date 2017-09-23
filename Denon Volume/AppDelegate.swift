@@ -14,6 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	// MARK: - Variables
 	
+	// Objects
 	let denonCommunicator = DenonCommunicator()
 	var menuViewController: MenuViewController?
 	
@@ -48,6 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	}
 	@objc func presentTouchBarMenu() {
 		print("Present")
+		_ = askVolume()
 		NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, systemTrayItemIdentifier: AppDelegate.controlBarIconIdentifier.rawValue)
 	}
 	
