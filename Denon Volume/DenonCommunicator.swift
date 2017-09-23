@@ -170,12 +170,13 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
-		self.updateUI(volume: self.lastVolume, state: lastState, reachable: successful)
+		print(lastState)
+		self.updateUI(volume: lastVolume, state: lastState, reachable: successful)
 		
 		return (lastVolume, successful, true)
 	}
 	
-	func sendPowerState(state: Bool) -> Bool {
+	@discardableResult func sendPowerState(state: Bool) -> Bool {
 		lastState = state
 		let power = state ? "PowerOn" : "PowerStandby"
 		
@@ -199,6 +200,7 @@ public class DenonCommunicator {
 		semaphore.wait()
 		
 		print(lastVolume)
+		print(lastState)
 		self.updateUI(volume: lastVolume, state: state, reachable: successful)
 		
 		return successful
