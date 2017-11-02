@@ -179,7 +179,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
-			button.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
+			let mbIcon = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
+			mbIcon?.isTemplate = true // best for dark mode
+			button.image = mbIcon
 			button.action = #selector(togglePopover(sender:))
 		}
 		
