@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13189.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-Dx-iNs">
+                <button toolTip="About" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iaa-Dx-iNs">
                     <rect key="frame" x="14" y="98" width="30" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="18" id="2Ms-Ow-s1J"/>
@@ -94,7 +94,7 @@
                         <action selector="orderFrontStandardAboutPanel:" target="-1" id="QIe-3R-7QK"/>
                     </connections>
                 </button>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="1V8-ir-UNB">
+                <button toolTip="Enable / Disable Device" translatesAutoresizingMaskIntoConstraints="NO" id="1V8-ir-UNB">
                     <rect key="frame" x="159" y="107" width="18" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="14" id="ezH-V7-ePD"/>
@@ -107,7 +107,7 @@
                         <action selector="onOffToggle:" target="-2" id="hNL-Tf-huq"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-Dh-j5G">
+                <button toolTip="Quit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-Dh-j5G">
                     <rect key="frame" x="146" y="13" width="36" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="HxA-TD-jhl"/>
