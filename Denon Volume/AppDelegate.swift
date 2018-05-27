@@ -144,7 +144,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		return denonCommunicator.sendVolume(volume: volume)
 	}
 	
-	func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
+	@discardableResult func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
 		return denonCommunicator.askVolume()
 	}
 	
