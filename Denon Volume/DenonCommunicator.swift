@@ -151,10 +151,12 @@ public class DenonCommunicator {
 				return
 			}
 			
-			let dataString: String = String(data: data, encoding: String.Encoding.utf8) as String!
+			let dataString: String = (String(data: data, encoding: String.Encoding.utf8) as String?)!
 			let matchedStringState = dataString.matchingStrings(regex: "<Power><value>(.*)<\\/value><\\/Power>").first![1]
 			if matchedStringState == "ON" {
 				self.lastState = true
+			} else if matchedStringState == "OFF" {
+				self.lastState = false
 			}
 			
 			var matchedStringVolume = dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first![1]
@@ -169,8 +171,8 @@ public class DenonCommunicator {
 		task.resume()
 		semaphore.wait()
 		
-		print(lastVolume)
-		print(lastState)
+		print("Volume: \(lastVolume)")
+		print("State: \(lastState)")
 		self.updateUI(volume: lastVolume, state: lastState, reachable: successful)
 		
 		return (lastVolume, successful, true)
