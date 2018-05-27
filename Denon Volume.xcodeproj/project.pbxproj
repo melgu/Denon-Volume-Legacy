@@ -20,9 +20,9 @@
 		B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */; };
 		B0D024431F4F5B0300CC10D8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B0D024421F4F5A9600CC10D8 /* Credits.rtf */; };
 		B0D024441F4F5B0800CC10D8 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0DB1C5B1F3A39F80037ABC3 /* dsa_pub.pem */; };
-		B0DB1C591F3A072C0037ABC3 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; };
-		B0DB1C5A1F3A072C0037ABC3 /* HotKey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B02B15F51F3A062C00C4135E /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */; };
+		B0DBF83D1FAEBAFE0025D077 /* HotKey.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DBF83B1FAEBABE0025D077 /* HotKey.framework */; };
+		B0DBF83E1FAEBAFE0025D077 /* HotKey.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B0DBF83B1FAEBABE0025D077 /* HotKey.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0EA28331F3526070033A9D8 /* DenonCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +50,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0DB1C5A1F3A072C0037ABC3 /* HotKey.framework in CopyFiles */,
+				B0DBF83E1FAEBAFE0025D077 /* HotKey.framework in CopyFiles */,
 				B0C83E171F3506AB00E624A7 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,7 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B02B15F51F3A062C00C4135E /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Framworks/HotKey.framework; sourceTree = SOURCE_ROOT; };
 		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		B0C83E151F3506A000E624A7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Framworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +80,7 @@
 		B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
 		B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		B0DB1C601F3A3AEC0037ABC3 /* TouchBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchBar-Bridging-Header.h"; sourceTree = "<group>"; };
+		B0DBF83B1FAEBABE0025D077 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Framworks/HotKey.framework; sourceTree = SOURCE_ROOT; };
 		B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenonCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,8 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DBF83D1FAEBAFE0025D077 /* HotKey.framework in Frameworks */,
 				B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */,
-				B0DB1C591F3A072C0037ABC3 /* HotKey.framework in Frameworks */,
 				B0C83E161F3506AB00E624A7 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,8 +174,8 @@
 		B0CAAB811EBC043600A1E8BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0DBF83B1FAEBABE0025D077 /* HotKey.framework */,
 				B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */,
-				B02B15F51F3A062C00C4135E /* HotKey.framework */,
 				B0C83E151F3506A000E624A7 /* Sparkle.framework */,
 			);
 			name = Frameworks;
@@ -256,7 +256,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Melvin Gundlach";
 				TargetAttributes = {
 					B0CAAB4B1EBBC11100A1E8BF = {
@@ -403,6 +403,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -410,6 +411,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -464,6 +466,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -471,6 +474,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
