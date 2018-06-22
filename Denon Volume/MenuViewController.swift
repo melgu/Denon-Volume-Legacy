@@ -78,15 +78,15 @@ class MenuViewController: NSViewController {
 	
 	func colorizeVolumeItems(volume: Int) {
 		if (volume >= 50) {
-			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImageRed"))
+			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name("StatusBarButtonImageRed"))
 			self.volumeTextLabel.textColor = .red
 			self.volumeLabel.textColor = .red
 		} else if (volume == 0) {
-			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImageGray"))
+			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name("StatusBarButtonImageGray"))
 			self.volumeTextLabel.textColor = .gray
 			self.volumeLabel.textColor = .gray
 		} else {
-			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
+			self.appDelegate.statusItem.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
 			self.volumeTextLabel.textColor = .black
 			self.volumeLabel.textColor = .black
 		}

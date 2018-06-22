@@ -96,6 +96,8 @@ public class DenonCommunicator {
 			lastTimeSend = Date()
 		}
 		
+		let allowedCharacters = "^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.-!/()=?`*;:_{}[]\\|~"
+		deviceName = deviceName.filter { allowedCharacters.contains($0) }
 		let url = URL(string: "http://\(deviceName)/goform/formiPhoneAppVolume.xml?1+-\(80-volume)")
 		var successful = true
 		
@@ -132,6 +134,8 @@ public class DenonCommunicator {
 			lastTimeReceive = Date()
 		}
 		
+		let allowedCharacters = "^0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,.-!/()=?`*;:_{}[]\\|~"
+		deviceName = deviceName.filter { allowedCharacters.contains($0) }
 		let url = URL(string: "http://\(deviceName)/goform/formMainZone_MainZoneXmlStatusLite.xml")
 		var successful = true
 		

@@ -114,12 +114,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 				self.tbLabelTextField.textColor = .red
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
-				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedStringKey.foregroundColor: NSColor.red, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 15)])
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedString.Key.foregroundColor: NSColor.red, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
 			} else if (volume == 0) {
 				self.tbLabelTextField.textColor = .gray
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
-				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedStringKey.foregroundColor: NSColor.gray, NSAttributedStringKey.paragraphStyle: style, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 15)])
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedString.Key.foregroundColor: NSColor.gray, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
 			} else {
 				self.tbLabelTextField.textColor = .white
 				self.tbControlStripButton.title = "\(volume)"
@@ -179,13 +179,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
-			let mbIcon = NSImage(named: NSImage.Name(rawValue: "StatusBarButtonImage"))
+			let mbIcon = NSImage(named: NSImage.Name("StatusBarButtonImage"))
 			mbIcon?.isTemplate = true // best for dark mode
 			button.image = mbIcon
 			button.action = #selector(togglePopover(sender:))
 		}
 		
-		popover.contentViewController = MenuViewController(nibName: NSNib.Name(rawValue: "MenuViewController"), bundle: nil)
+		popover.contentViewController = MenuViewController(nibName: NSNib.Name("MenuViewController"), bundle: nil)
 		
 		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown]) { [unowned self] event in
 			if self.popover.isShown {
