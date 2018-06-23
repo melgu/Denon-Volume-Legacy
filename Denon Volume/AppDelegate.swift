@@ -175,7 +175,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		// Insert code here to initialize your application
 		
 		denonCommunicator.appDelegate = self
-		_ = denonCommunicator.askVolume()
+//		_ = denonCommunicator.askVolume()
 		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
@@ -233,6 +233,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
 		controlBarIcon.view = tbControlStripButton
 		
+		showPopover(sender: self)
 		presentTouchBarMenu()
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		
