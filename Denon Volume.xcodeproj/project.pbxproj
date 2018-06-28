@@ -58,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B045C0E120E5998000D74DAA /* Denon Volume.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
 		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		B0C83E151F3506A000E624A7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Framworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +75,6 @@
 		B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMonitor.swift; sourceTree = "<group>"; };
-		B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
 		B0D024421F4F5A9600CC10D8 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Credits.rtf; path = Resources/Credits.rtf; sourceTree = SOURCE_ROOT; };
 		B0DB1C5B1F3A39F80037ABC3 /* dsa_pub.pem */ = {isa = PBXFileReference; lastKnownFileType = text; name = dsa_pub.pem; path = "Sparkle Certs/dsa_pub.pem"; sourceTree = SOURCE_ROOT; };
 		B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DFRFoundation.framework; path = ../../../../../../System/Library/PrivateFrameworks/DFRFoundation.framework; sourceTree = "<group>"; };
@@ -137,9 +137,9 @@
 		B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */ = {
 			isa = PBXGroup;
 			children = (
+				B045C0E120E5998000D74DAA /* Denon Volume.entitlements */,
 				B0DB1C601F3A3AEC0037ABC3 /* TouchBar-Bridging-Header.h */,
 				B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */,
-				B0CAAB801EBBFAC200A1E8BF /* Denon Volume.entitlements */,
 				B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */,
 				B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */,
 				B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */,
@@ -512,9 +512,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Denon Volume/Denon Volume.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FAZQH65APM;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framworks",
@@ -535,9 +536,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Denon Volume/Denon Volume.entitlements";
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = FAZQH65APM;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Framworks",
