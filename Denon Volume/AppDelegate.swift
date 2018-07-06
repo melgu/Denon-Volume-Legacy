@@ -50,7 +50,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	@objc func presentTouchBarMenu() {
 		print("Present")
 		_ = askVolume()
-		NSTouchBar.presentSystemModalFunctionBar(groupTouchBar, systemTrayItemIdentifier: AppDelegate.controlBarIconIdentifier.rawValue)
+		NSTouchBar.presentSystemModalTouchBar(groupTouchBar, systemTrayItemIdentifier: NSTouchBarItem.Identifier(rawValue: AppDelegate.controlBarIconIdentifier.rawValue))
 	}
 	
 	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? { switch identifier {
