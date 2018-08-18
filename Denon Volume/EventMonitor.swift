@@ -2,8 +2,8 @@
 //  EventMonitor.swift
 //  Denon Volume
 //
-//  Created by Melvin Gundlach on 05.05.17.
-//  Copyright © 2017 Melvin Gundlach. All rights reserved.
+//  Created by Melvin Gundlach.
+//  Copyright © 2018 Melvin Gundlach. All rights reserved.
 //
 
 import Cocoa

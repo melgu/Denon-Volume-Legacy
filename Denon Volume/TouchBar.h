@@ -1,9 +1,9 @@
 //
 //  TouchBar.h
-//  TouchBarTest
+//  Denon Volume
 //
-//  Created by Alexsander Akers on 2/13/17.
-//  Copyright © 2017 Alexsander Akers. All rights reserved.
+//  Created by Melvin Gundlach.
+//  Copyright © 2018 Melvin Gundlach. All rights reserved.
 //
 
 #import <AppKit/AppKit.h>
