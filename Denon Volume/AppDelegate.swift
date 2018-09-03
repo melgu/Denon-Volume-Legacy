@@ -110,7 +110,21 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 			self.tbSlider.slider.integerValue = volume
 			self.tbLabelTextField.integerValue = volume
 			
-			if (volume >= 50) {
+			if (!reachable) {
+				self.tbSlider.slider.integerValue = 0
+				self.tbLabelTextField.stringValue = "Unreachable"
+				self.tbLabelTextField.textColor = .red
+				let style = NSMutableParagraphStyle()
+				style.alignment = .center
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "Unreachable", attributes: [NSAttributedString.Key.foregroundColor: NSColor.red, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
+			} else if (!state) {
+				self.tbSlider.slider.integerValue = 0
+				self.tbLabelTextField.stringValue = "Offline"
+				self.tbLabelTextField.textColor = .gray
+				let style = NSMutableParagraphStyle()
+				style.alignment = .center
+				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "Offline", attributes: [NSAttributedString.Key.foregroundColor: NSColor.gray, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
+			} else if (volume >= 50) {
 				self.tbLabelTextField.textColor = .red
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
