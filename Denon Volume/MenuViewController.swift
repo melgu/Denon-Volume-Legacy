@@ -72,7 +72,7 @@ class MenuViewController: NSViewController {
 			slider.integerValue = 0
 			volumeLabel.integerValue = 0
 			volumeLabel.textColor = NSColor.gray
-			volumeTextLabel.textColor = NSColor.gray
+			colorizeVolumeItems(volume: 0)
 		}
 	}
 	
