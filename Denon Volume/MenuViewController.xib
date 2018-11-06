@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +28,7 @@
                     </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="Denon-AVR" placeholderString="Denon-AVR" drawsBackground="YES" usesSingleLineMode="YES" id="vld-ru-tfw">
                         <font key="font" metaFont="system"/>
-                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <allowedInputSourceLocales>
                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
@@ -51,7 +50,7 @@
                     </connections>
                 </slider>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zey-qy-EKy">
-                    <rect key="frame" x="73" y="22" width="49" height="17"/>
+                    <rect key="frame" x="74" y="22" width="49" height="17"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="45" id="cgf-Rs-UdE"/>
                     </constraints>
@@ -108,7 +107,7 @@
                     </connections>
                 </button>
                 <button toolTip="Quit" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Tq-Dh-j5G">
-                    <rect key="frame" x="146" y="13" width="36" height="32"/>
+                    <rect key="frame" x="147" y="13" width="36" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="HxA-TD-jhl"/>
                     </constraints>

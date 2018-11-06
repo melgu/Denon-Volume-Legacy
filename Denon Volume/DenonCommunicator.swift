@@ -156,14 +156,27 @@ public class DenonCommunicator {
 			}
 			
 			let dataString: String = (String(data: data, encoding: String.Encoding.utf8) as String?)!
-			let matchedStringState = dataString.matchingStrings(regex: "<Power><value>(.*)<\\/value><\\/Power>").first![1]
+			
+			guard let matchedStringState = dataString.matchingStrings(regex: "<Power><value>(.*)<\\/value><\\/Power>").first?[1] else {
+				print("Unexpected Data. Probably not coming from AVR")
+				successful = false
+				semaphore.signal()
+				return
+			}
+			
 			if matchedStringState == "ON" {
 				self.lastState = true
 			} else if matchedStringState == "OFF" {
 				self.lastState = false
 			}
 			
-			var matchedStringVolume = dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first![1]
+			guard var matchedStringVolume = dataString.matchingStrings(regex: "<MasterVolume><value>-(.*)<\\/value><\\/MasterVolume>").first?[1] else {
+				print("Unexpected Data. Probably not coming from AVR")
+				successful = false
+				semaphore.signal()
+				return
+			}
+			
 			if matchedStringVolume == "-" {
 				matchedStringVolume = "80"
 			}
