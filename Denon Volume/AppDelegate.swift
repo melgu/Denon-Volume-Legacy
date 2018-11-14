@@ -81,9 +81,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	// MARK: - Func: Popover
 	
 	func showPopover(sender: AnyObject?) {
+		print("Start showPopover")
 		if let button = statusItem.button {
+			print("showPopover Inside Button")
 			popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
 		}
+		print("showPopover Button done")
 		
 		eventMonitor?.start()
 	}
@@ -189,7 +192,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		// Insert code here to initialize your application
 		
 		denonCommunicator.appDelegate = self
-//		_ = denonCommunicator.askVolume()
 		
 		// Create Menu Bar Icon/Button
 		if let button = statusItem.button {
@@ -247,8 +249,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
 		controlBarIcon.view = tbControlStripButton
 		
+		print("Before showPopover")
 		showPopover(sender: self)
+		print("showPopover finished")
 		presentTouchBarMenu()
+		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		
 	}
