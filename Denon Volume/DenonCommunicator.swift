@@ -18,8 +18,6 @@ public class DenonCommunicator {
 	let volumeStepsBig = 3
 	let volumeStepsLittle = 1
 	
-	var initDone = false
-	
 	var deviceName = "Denon-AVR"
 	var lastTimeSend = Date()
 	var lastTimeReceive = Date()
