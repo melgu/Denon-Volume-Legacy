@@ -18,6 +18,17 @@
 			name = Periphery;
 			productName = Periphery;
 		};
+		B0EFE78A21F1E18300A3F483 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = B0EFE78D21F1E18400A3F483 /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+				B0EFE78E21F1E18C00A3F483 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
@@ -301,6 +312,10 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = B0CAAB4B1EBBC11100A1E8BF;
 					};
+					B0EFE78A21F1E18300A3F483 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = B0CAAB471EBBC11100A1E8BF /* Build configuration list for PBXProject "Denon Volume" */;
@@ -308,6 +323,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -320,6 +336,7 @@
 				B0CAAB5C1EBBC11200A1E8BF /* Denon VolumeTests */,
 				B0CAAB671EBBC11200A1E8BF /* Denon VolumeUITests */,
 				B03BD3F52194DD97004C350A /* Periphery */,
+				B0EFE78A21F1E18300A3F483 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
@@ -370,6 +387,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "periphery scan \\\n--project \"/Users/melvin/Documents/Xcode Projects/Denon Volume/Denon Volume.xcodeproj/\" \\\n--schemes \"Denon Volume\" \\\n--targets \"Denon Volume\" \\\n--retain-objc-annotated \\\n--no-retain-public \\\n--format xcode\n";
+		};
+		B0EFE78E21F1E18C00A3F483 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -507,6 +541,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "Denon Volume/TouchBar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -562,6 +597,7 @@
 				SDKROOT = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "Denon Volume/TouchBar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -586,7 +622,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -611,7 +647,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -626,7 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-VolumeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Denon Volume.app/Contents/MacOS/Denon Volume";
 			};
 			name = Debug;
@@ -642,7 +678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-VolumeTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Denon Volume.app/Contents/MacOS/Denon Volume";
 			};
 			name = Release;
@@ -657,7 +693,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-VolumeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Denon Volume";
 			};
 			name = Debug;
@@ -672,8 +708,24 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-VolumeUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TEST_TARGET_NAME = "Denon Volume";
+			};
+			name = Release;
+		};
+		B0EFE78B21F1E18400A3F483 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B0EFE78C21F1E18400A3F483 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -721,6 +773,15 @@
 			buildConfigurations = (
 				B0CAAB781EBBC11200A1E8BF /* Debug */,
 				B0CAAB791EBBC11200A1E8BF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0EFE78D21F1E18400A3F483 /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0EFE78B21F1E18400A3F483 /* Debug */,
+				B0EFE78C21F1E18400A3F483 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
