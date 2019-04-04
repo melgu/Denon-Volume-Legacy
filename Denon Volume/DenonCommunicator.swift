@@ -11,7 +11,7 @@ import Foundation
 public class DenonCommunicator {
 	
 	// MARK: - Variables
-	var appDelegate: AppDelegate?
+	weak var appDelegate: AppDelegate?
 	
 	let volumeMinValue = 0
 	let volumeMaxValue = 70
@@ -89,7 +89,7 @@ public class DenonCommunicator {
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
 	@discardableResult func sendVolume(volume: Int) -> (successful: Bool, timeInterval: Bool) {
-		if (Date().timeIntervalSince(lastTimeSend) < 0.05) {
+		if Date().timeIntervalSince(lastTimeSend) < 0.05 {
 			return (true, false)
 		} else {
 			lastTimeSend = Date()
@@ -102,7 +102,7 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+		let task = URLSession.shared.dataTask(with: url!) { _, _, error in
 			guard error == nil else {
 				print(error!)
 				successful = false
@@ -127,7 +127,7 @@ public class DenonCommunicator {
 	// timeInterval: 'false' if too short after previous execution
 	@discardableResult func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
 		
-		if (Date().timeIntervalSince(lastTimeReceive) < 0.05) {
+		if Date().timeIntervalSince(lastTimeReceive) < 0.05 {
 			return (lastVolume, true, false)
 		} else {
 			lastTimeReceive = Date()
@@ -140,7 +140,7 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+		let task = URLSession.shared.dataTask(with: url!) { data, _, error in
 			guard error == nil else {
 				print(error!)
 				successful = false
@@ -203,7 +203,7 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { data, response, error in
+		let task = URLSession.shared.dataTask(with: url!) { _, _, error in
 			guard error == nil else {
 				print(error!)
 				successful = false

@@ -53,28 +53,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		NSTouchBar.presentSystemModalTouchBar(groupTouchBar, systemTrayItemIdentifier: NSTouchBarItem.Identifier(rawValue: AppDelegate.controlBarIconIdentifier.rawValue))
 	}
 	
-	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? { switch identifier {
-	case AppDelegate.volumeUpIdentifier:
-		let item = NSCustomTouchBarItem(identifier: identifier)
-		item.view = NSButton(title: "Volume Up", target: self, action: #selector(volumeUpBig))
-		return item
-	case AppDelegate.volumeDownIdentifier:
-		let item = NSCustomTouchBarItem(identifier: identifier)
-		item.view = NSButton(title: "Volume Down", target: self, action: #selector(volumeDownBig))
-		return item
-	case AppDelegate.volumeSliderIdentifier:
-		return self.tbSlider
-	case AppDelegate.volumeLabelIdentifier:
-		let item = NSCustomTouchBarItem(identifier: identifier)
-		item.view = tbLabelTextField
-		return item
-	case AppDelegate.controlBarIconIdentifier:
-		let item = NSCustomTouchBarItem(identifier: identifier)
-		item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
-		return item
-	default:
-		print("nil")
-		return nil
+	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
+	
+		switch identifier {
+		case AppDelegate.volumeUpIdentifier:
+			let item = NSCustomTouchBarItem(identifier: identifier)
+			item.view = NSButton(title: "Volume Up", target: self, action: #selector(volumeUpBig))
+			return item
+		case AppDelegate.volumeDownIdentifier:
+			let item = NSCustomTouchBarItem(identifier: identifier)
+			item.view = NSButton(title: "Volume Down", target: self, action: #selector(volumeDownBig))
+			return item
+		case AppDelegate.volumeSliderIdentifier:
+			return self.tbSlider
+		case AppDelegate.volumeLabelIdentifier:
+			let item = NSCustomTouchBarItem(identifier: identifier)
+			item.view = tbLabelTextField
+			return item
+		case AppDelegate.controlBarIconIdentifier:
+			let item = NSCustomTouchBarItem(identifier: identifier)
+			item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
+			return item
+		default:
+			print("nil")
+			return nil
 		}
 	}
 	
@@ -113,26 +115,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 			self.tbSlider.slider.integerValue = volume
 			self.tbLabelTextField.integerValue = volume
 			
-			if (!reachable) {
+			if !reachable {
 				self.tbSlider.slider.integerValue = 0
 				self.tbLabelTextField.stringValue = "Unreachable"
 				self.tbLabelTextField.textColor = .red
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
 				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "Unreachable", attributes: [NSAttributedString.Key.foregroundColor: NSColor.red, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
-			} else if (!state) {
+			} else if !state {
 				self.tbSlider.slider.integerValue = 0
 				self.tbLabelTextField.stringValue = "Offline"
 				self.tbLabelTextField.textColor = .gray
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
 				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "Offline", attributes: [NSAttributedString.Key.foregroundColor: NSColor.gray, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
-			} else if (volume >= 50) {
+			} else if volume >= 50 {
 				self.tbLabelTextField.textColor = .red
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center
 				self.tbControlStripButton.attributedTitle = NSMutableAttributedString(string: "\(volume)", attributes: [NSAttributedString.Key.foregroundColor: NSColor.red, NSAttributedString.Key.paragraphStyle: style, NSAttributedString.Key.font: NSFont.systemFont(ofSize: 15)])
-			} else if (volume == 0) {
+			} else if volume == 0 {
 				self.tbLabelTextField.textColor = .gray
 				let style = NSMutableParagraphStyle()
 				style.alignment = .center

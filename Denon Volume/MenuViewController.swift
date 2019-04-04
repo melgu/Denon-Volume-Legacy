@@ -18,15 +18,15 @@ class MenuViewController: NSViewController {
 	@IBOutlet weak var volumeTextLabel: NSTextField!
 	@IBOutlet weak var onOffToggle: NSButton!
 	
-	let appDelegate = NSApplication.shared.delegate as! AppDelegate
+	weak var appDelegate = NSApplication.shared.delegate as? AppDelegate
 	
 	@IBAction func deviceFieldTextChange(_ sender: Any) {
 		print(deviceField.stringValue)
-		appDelegate.setDeviceName(name: deviceField.stringValue)
+		appDelegate?.setDeviceName(name: deviceField.stringValue)
 	}
 	
 	@IBAction func quitButton(_ sender: Any) {
-		appDelegate.quit()
+		appDelegate?.quit()
 	}
 	
 	@IBAction func slider(_ sender: Any) {
@@ -35,20 +35,20 @@ class MenuViewController: NSViewController {
 	
 	@IBAction func onOffToggle(_ sender: Any) {
 		let state = (onOffToggle.state.rawValue == 1) ? true : false
-		appDelegate.sendPowerState(state: state)
+		appDelegate?.sendPowerState(state: state)
 	}
 	
 	// MARK: - Functions
 	
 	// Volume 0-70, return otherwise (40 for testing)
 	func sendVolume(volume: Int) {
-		appDelegate.setDeviceName(name: deviceField.stringValue)
-		appDelegate.sendVolume(volume: volume)
+		appDelegate?.setDeviceName(name: deviceField.stringValue)
+		appDelegate?.sendVolume(volume: volume)
 	}
 	
 	func askVolume() {
-		appDelegate.setDeviceName(name: deviceField.stringValue)
-		appDelegate.askVolume()
+		appDelegate?.setDeviceName(name: deviceField.stringValue)
+		appDelegate?.askVolume()
 	}
 	
 	func updateUI(volume: Int, state: Bool, reachable: Bool) {
@@ -77,16 +77,16 @@ class MenuViewController: NSViewController {
 	}
 	
 	func colorizeVolumeItems(volume: Int) {
-		if (volume >= 50) {
-			self.appDelegate.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImageRed"))
+		if volume >= 50 {
+			self.appDelegate?.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImageRed"))
 			self.volumeTextLabel.textColor = .red
 			self.volumeLabel.textColor = .red
-		} else if (volume == 0) {
-			self.appDelegate.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImageGray"))
+		} else if volume == 0 {
+			self.appDelegate?.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImageGray"))
 			self.volumeTextLabel.textColor = .gray
 			self.volumeLabel.textColor = .gray
 		} else {
-			self.appDelegate.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+			self.appDelegate?.statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
 			self.volumeTextLabel.textColor = .black
 			self.volumeLabel.textColor = .black
 		}
@@ -99,8 +99,8 @@ class MenuViewController: NSViewController {
         super.viewDidLoad()
         // Do view setup here.
 		
-		appDelegate.setDeviceName(name: deviceField.stringValue)
-		appDelegate.menuViewController = self
+		appDelegate?.setDeviceName(name: deviceField.stringValue)
+		appDelegate?.menuViewController = self
     }
 	
 	override func viewWillAppear() {
