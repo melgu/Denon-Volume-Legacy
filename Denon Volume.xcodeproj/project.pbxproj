@@ -106,6 +106,7 @@
 		B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchBar.h; sourceTree = "<group>"; };
 		B0DB1C601F3A3AEC0037ABC3 /* TouchBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TouchBar-Bridging-Header.h"; sourceTree = "<group>"; };
 		B0DBF83B1FAEBABE0025D077 /* HotKey.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HotKey.framework; path = Framworks/HotKey.framework; sourceTree = SOURCE_ROOT; };
+		B0E6AED12255A5C400D7DA7B /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenonCommunicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +141,7 @@
 		B0CAAB431EBBC11100A1E8BF = {
 			isa = PBXGroup;
 			children = (
+				B0E6AED12255A5C400D7DA7B /* .swiftlint.yml */,
 				B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */,
 				B0CAAB601EBBC11200A1E8BF /* Denon VolumeTests */,
 				B0CAAB6B1EBBC11200A1E8BF /* Denon VolumeUITests */,
@@ -281,7 +283,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Melvin Gundlach";
 				TargetAttributes = {
 					B03BD3F52194DD97004C350A = {
@@ -320,10 +322,9 @@
 			};
 			buildConfigurationList = B0CAAB471EBBC11100A1E8BF /* Build configuration list for PBXProject "Denon Volume" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -485,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -549,6 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -654,7 +657,7 @@
 		B0CAAB751EBBC11200A1E8BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Denon VolumeTests/Info.plist";
@@ -670,7 +673,7 @@
 		B0CAAB761EBBC11200A1E8BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Denon VolumeTests/Info.plist";
@@ -686,7 +689,7 @@
 		B0CAAB781EBBC11200A1E8BF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Denon VolumeUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -701,7 +704,7 @@
 		B0CAAB791EBBC11200A1E8BF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "Denon VolumeUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
