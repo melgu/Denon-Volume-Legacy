@@ -22,6 +22,12 @@ trailing_whitespace:
   ignores_empty_lines: true
 vertical_whitespace:
   max_empty_lines: 2
+function_body_length:
+  warning: 50
+  error: 100
+large_tuple:
+  warning: 4
+  error: 5
 
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
 
