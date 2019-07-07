@@ -82,7 +82,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	// MARK: - Func: Popover
 	
-	func showPopover(sender: AnyObject?) {
+	func showPopover() {
 		print("Start showPopover")
 		if let button = statusItem.button {
 			print("showPopover Inside Button")
@@ -93,17 +93,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		eventMonitor?.start()
 	}
 	
-	func closePopover(sender: AnyObject?) {
-		popover.performClose(sender)
+	func closePopover() {
+		popover.performClose(nil)
 		
 		eventMonitor?.stop()
 	}
 	
-	@objc func togglePopover(sender: AnyObject?) {
+	@objc func togglePopover() {
 		if popover.isShown {
-			closePopover(sender: sender)
+			closePopover()
 		} else {
-			showPopover(sender: sender)
+			showPopover()
 		}
 	}
 	
@@ -190,31 +190,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	// MARK: - Setup
 	
-	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		// Insert code here to initialize your application
-		
-		denonCommunicator.appDelegate = self
-		
-		// Create Menu Bar Icon/Button
-		if let button = statusItem.button {
-			let mbIcon = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-			mbIcon?.isTemplate = true // best for dark mode
-			button.image = mbIcon
-			button.action = #selector(togglePopover(sender:))
-		}
-		
-		popover.contentViewController = MenuViewController(nibName: NSNib.Name("MenuViewController"), bundle: nil)
-		
-		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [unowned self] event in
-			if self.popover.isShown {
-				self.closePopover(sender: event)
-			}
-		}
-		eventMonitor?.start()
-		
-		
-		// Set Global Hotkeys
-		
+	func setGlobalHotKeys() {
 		hotKeyVolumeUpBig = HotKey(keyCombo: KeyCombo(key: .upArrow, modifiers: [.control, .option]))
 		hotKeyVolumeUpBig?.keyDownHandler = {
 			self.volumeUpBig()
@@ -233,8 +209,35 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		}
 		hotKeyVolumeWindow = HotKey(keyCombo: KeyCombo(key: .return, modifiers: [.control, .option]))
 		hotKeyVolumeWindow?.keyDownHandler = {
-			self.togglePopover(sender: self)
+			self.togglePopover()
 		}
+	}
+	
+	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		// Insert code here to initialize your application
+		
+		denonCommunicator.appDelegate = self
+		
+		// Create Menu Bar Icon/Button
+		if let button = statusItem.button {
+			let mbIcon = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+			mbIcon?.isTemplate = true // best for dark mode
+			button.image = mbIcon
+			button.action = #selector(togglePopover)
+		}
+		
+		popover.contentViewController = MenuViewController(nibName: NSNib.Name("MenuViewController"), bundle: nil)
+		
+		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [unowned self] event in
+			if self.popover.isShown {
+				self.closePopover()
+			}
+		}
+		eventMonitor?.start()
+		
+		
+		// Set Global Hotkeys
+		setGlobalHotKeys()
 		
 		
 		// Touch Bar
@@ -252,12 +255,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		controlBarIcon.view = tbControlStripButton
 		
 		print("Before showPopover")
-		showPopover(sender: self)
+		showPopover()
 		print("showPopover finished")
 		presentTouchBarMenu()
 		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
-		
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {

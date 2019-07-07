@@ -8,16 +8,11 @@
 
 #import <AppKit/AppKit.h>
 
-//extern void DFRElementSetControlStripPresenceForIdentifier(NSString *, BOOL);
-//extern void DFRSystemModalShowsCloseBoxWhenFrontMost(BOOL);
-
 extern void DFRElementSetControlStripPresenceForIdentifier(NSTouchBarItemIdentifier, BOOL);
 extern void DFRSystemModalShowsCloseBoxWhenFrontMost(BOOL);
 
 
 @interface NSTouchBarItem ()
-
-//+ (void)addSystemTrayItem:(NSTouchBarItem *)item;
 
 + (void)addSystemTrayItem:(NSTouchBarItem *)item;
 + (void)removeSystemTrayItem:(NSTouchBarItem *)item;
@@ -25,8 +20,6 @@ extern void DFRSystemModalShowsCloseBoxWhenFrontMost(BOOL);
 @end
 
 @interface NSTouchBar ()
-
-//+ (void)presentSystemModalFunctionBar:(NSTouchBar *)touchBar systemTrayItemIdentifier:(NSString *)identifier;
 
 + (void)presentSystemModalTouchBar:(NSTouchBar *)touchBar placement:(long long)placement systemTrayItemIdentifier:(NSTouchBarItemIdentifier)identifier;
 + (void)presentSystemModalTouchBar:(NSTouchBar *)touchBar systemTrayItemIdentifier:(NSTouchBarItemIdentifier)identifier;
