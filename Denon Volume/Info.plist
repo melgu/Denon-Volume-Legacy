@@ -41,5 +41,7 @@
 	<string>http://melvin-gundlach.de/apps/denon-volume/appcast.xml</string>
 	<key>SUPublicDSAKeyFile</key>
 	<string>dsa_pub.pem</string>
+	<key>SUPublicEDKey</key>
+	<string>uu1tKSBLrSBPm/dLlsdrcAMjWssqDiO/lOxDqGZMIc4=</string>
 </dict>
 </plist>
