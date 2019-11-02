@@ -260,6 +260,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		presentTouchBarMenu()
 		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
+		NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
+		print("applicationDidFinishLaunching finished")
 	}
 	
 	func applicationWillTerminate(_ aNotification: Notification) {
