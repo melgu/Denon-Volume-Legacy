@@ -619,7 +619,6 @@
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
@@ -651,7 +650,6 @@
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
 					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
 				);
