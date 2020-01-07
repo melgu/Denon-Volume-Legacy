@@ -112,6 +112,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	
 	func updateUI(volume: Int, state: Bool, reachable: Bool) {
 		DispatchQueue.main.async {
+			// Touch Bar
+			
 			self.tbSlider.slider.integerValue = volume
 			self.tbLabelTextField.integerValue = volume
 			
@@ -144,6 +146,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 				self.tbControlStripButton.title = "\(volume)"
 			}
 			
+			// Menu Bar Window
 			self.menuViewController?.updateUI(volume: volume, state: state, reachable: reachable)
 		}
 	}
@@ -257,8 +260,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		print("Before showPopover")
 		showPopover()
 		print("showPopover finished")
-		presentTouchBarMenu()
-		print("presentTouchBarMenu finished")
+//		presentTouchBarMenu()
+//		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
 		print("applicationDidFinishLaunching finished")
