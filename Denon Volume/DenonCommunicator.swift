@@ -24,6 +24,15 @@ public class DenonCommunicator {
 	var lastState = false
 	var lastVolume = 0
 	
+	let session: URLSession
+	
+	init() {
+		let sessionConfig = URLSessionConfiguration.default
+		sessionConfig.timeoutIntervalForRequest = 0.5 // URL Session Timout per partial Request
+		sessionConfig.timeoutIntervalForResource = 0.5 // URL Session Total Timout per Resourcwe
+		session = URLSession(configuration: sessionConfig)
+	}
+	
 	
 	// MARK: - Functions
 	
@@ -41,7 +50,7 @@ public class DenonCommunicator {
 	
 	func setDeviceName(name: String) {
 		deviceName = name
-		_ = askVolume()
+//		_ = askVolume()
 	}
 	
 	func volumeUpBig() {
@@ -102,7 +111,7 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { _, _, error in
+		let task = session.dataTask(with: url!) { _, _, error in
 			guard error == nil else {
 				print(error!)
 				successful = false
@@ -140,9 +149,9 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { data, _, error in
+		let task = session.dataTask(with: url!) { data, _, error in
 			guard error == nil else {
-				print(error!)
+//				print(error!) // Should print error anyways, so no need to do it a second time
 				successful = false
 				semaphore.signal()
 				return
@@ -203,7 +212,7 @@ public class DenonCommunicator {
 		
 		let semaphore = DispatchSemaphore(value: 0)
 		
-		let task = URLSession.shared.dataTask(with: url!) { _, _, error in
+		let task = session.dataTask(with: url!) { _, _, error in
 			guard error == nil else {
 				print(error!)
 				successful = false

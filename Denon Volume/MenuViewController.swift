@@ -54,26 +54,35 @@ class MenuViewController: NSViewController {
 	func updateUI(volume: Int, state: Bool, reachable: Bool) {
 		if reachable {
 			deviceField.textColor = NSColor.black
+			if state {
+				onOffToggle.state = NSControl.StateValue(1)
+				slider.isEnabled = true
+				volumeTextLabel.stringValue = "Volume"
+				slider.integerValue = volume
+				volumeLabel.integerValue = volume
+				colorizeVolumeItems(volume: volume)
+			} else {
+				onOffToggle.state = NSControl.StateValue(0)
+				slider.isEnabled = false
+				volumeTextLabel.stringValue = "Offline"
+				slider.integerValue = 0
+				volumeLabel.integerValue = 0
+				volumeLabel.textColor = NSColor.gray
+				colorizeVolumeItems(volume: 0)
+			}
 		} else {
 			deviceField.textColor = NSColor.red
-		}
-		
-		if state {
-			onOffToggle.state = NSControl.StateValue(1)
-			slider.isEnabled = true
-			volumeTextLabel.stringValue = "Volume"
-			slider.integerValue = volume
-			volumeLabel.integerValue = volume
-			colorizeVolumeItems(volume: volume)
-		} else {
+			
 			onOffToggle.state = NSControl.StateValue(0)
 			slider.isEnabled = false
-			volumeTextLabel.stringValue = "Offline"
+			volumeTextLabel.stringValue = "Unreachable"
 			slider.integerValue = 0
 			volumeLabel.integerValue = 0
 			volumeLabel.textColor = NSColor.gray
 			colorizeVolumeItems(volume: 0)
 		}
+		
+		
 	}
 	
 	func colorizeVolumeItems(volume: Int) {
