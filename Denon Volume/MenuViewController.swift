@@ -23,6 +23,7 @@ class MenuViewController: NSViewController {
 	@IBAction func deviceFieldTextChange(_ sender: Any) {
 		print(deviceField.stringValue)
 		appDelegate?.setDeviceName(name: deviceField.stringValue)
+		_ = askVolume()
 	}
 	
 	@IBAction func quitButton(_ sender: Any) {
@@ -54,6 +55,7 @@ class MenuViewController: NSViewController {
 	func updateUI(volume: Int, state: Bool, reachable: Bool) {
 		if reachable {
 			deviceField.textColor = NSColor.black
+			onOffToggle.isEnabled = true
 			if state {
 				onOffToggle.state = NSControl.StateValue(1)
 				slider.isEnabled = true
@@ -67,13 +69,13 @@ class MenuViewController: NSViewController {
 				volumeTextLabel.stringValue = "Offline"
 				slider.integerValue = 0
 				volumeLabel.integerValue = 0
-				volumeLabel.textColor = NSColor.gray
 				colorizeVolumeItems(volume: 0)
 			}
 		} else {
 			deviceField.textColor = NSColor.red
 			
 			onOffToggle.state = NSControl.StateValue(0)
+			onOffToggle.isEnabled = false
 			slider.isEnabled = false
 			volumeTextLabel.stringValue = "Unreachable"
 			slider.integerValue = 0

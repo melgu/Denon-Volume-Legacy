@@ -50,7 +50,6 @@ public class DenonCommunicator {
 	
 	func setDeviceName(name: String) {
 		deviceName = name
-//		_ = askVolume()
 	}
 	
 	func volumeUpBig() {
