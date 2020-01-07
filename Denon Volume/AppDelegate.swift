@@ -31,16 +31,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	var eventMonitor: EventMonitor?
 	
 	// Touch Bar
-	static let volumeUpIdentifier = NSTouchBarItem.Identifier("Volume Up")
-	static let volumeDownIdentifier = NSTouchBarItem.Identifier("Volume Down")
-	static let volumeSliderIdentifier = NSTouchBarItem.Identifier("Volume Slider")
-	static let volumeLabelIdentifier = NSTouchBarItem.Identifier("Volume Label")
-	static let controlBarIconIdentifier = NSTouchBarItem.Identifier("Control Bar Icon")
-	
 	var groupTouchBar: NSTouchBar?
 	
 	var tbControlStripButton = NSButton(title: "00", target: self, action: #selector(presentTouchBarMenu))
-	let tbSlider = NSSliderTouchBarItem(identifier: volumeSliderIdentifier)
+	let tbSlider = NSSliderTouchBarItem(identifier: .volumeSliderIdentifier)
 	var tbLabelTextField: NSTextField = NSTextField(labelWithString: "00")
 	
 	// MARK: - Func: Touch Bar
@@ -50,27 +44,28 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	@objc func presentTouchBarMenu() {
 		print("Present")
 		_ = askVolume()
-		NSTouchBar.presentSystemModalTouchBar(groupTouchBar, systemTrayItemIdentifier: NSTouchBarItem.Identifier(rawValue: AppDelegate.controlBarIconIdentifier.rawValue))
+		NSTouchBar.presentSystemModalTouchBar(groupTouchBar, systemTrayItemIdentifier: .controlBarIconIdentifier)
+		DFRElementSetControlStripPresenceForIdentifier(.controlBarIconIdentifier, true)
 	}
 	
 	func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
 	
 		switch identifier {
-		case AppDelegate.volumeUpIdentifier:
+		case .volumeUpIdentifier:
 			let item = NSCustomTouchBarItem(identifier: identifier)
 			item.view = NSButton(title: "Volume Up", target: self, action: #selector(volumeUpBig))
 			return item
-		case AppDelegate.volumeDownIdentifier:
+		case .volumeDownIdentifier:
 			let item = NSCustomTouchBarItem(identifier: identifier)
 			item.view = NSButton(title: "Volume Down", target: self, action: #selector(volumeDownBig))
 			return item
-		case AppDelegate.volumeSliderIdentifier:
+		case .volumeSliderIdentifier:
 			return self.tbSlider
-		case AppDelegate.volumeLabelIdentifier:
+		case .volumeLabelIdentifier:
 			let item = NSCustomTouchBarItem(identifier: identifier)
 			item.view = tbLabelTextField
 			return item
-		case AppDelegate.controlBarIconIdentifier:
+		case .controlBarIconIdentifier:
 			let item = NSCustomTouchBarItem(identifier: identifier)
 			item.view = NSButton(title: "🔈", target: self, action: #selector(presentTouchBarMenu))
 			return item
@@ -251,17 +246,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		DFRSystemModalShowsCloseBoxWhenFrontMost(true)
 		
 		groupTouchBar = NSTouchBar()
-		groupTouchBar?.defaultItemIdentifiers = [AppDelegate.volumeDownIdentifier, AppDelegate.volumeUpIdentifier, AppDelegate.volumeSliderIdentifier, AppDelegate.volumeLabelIdentifier]
+		groupTouchBar?.defaultItemIdentifiers = [.volumeDownIdentifier, .volumeUpIdentifier, .volumeSliderIdentifier, .volumeLabelIdentifier]
 		groupTouchBar?.delegate = self
 		
-		let controlBarIcon = NSCustomTouchBarItem(identifier: AppDelegate.controlBarIconIdentifier)
+		let controlBarIcon = NSCustomTouchBarItem(identifier: .controlBarIconIdentifier)
 		controlBarIcon.view = tbControlStripButton
 		
 		print("Before showPopover")
 		showPopover()
 		print("showPopover finished")
-//		presentTouchBarMenu()
-//		print("presentTouchBarMenu finished")
+		presentTouchBarMenu()
+		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
 		print("applicationDidFinishLaunching finished")
@@ -270,4 +265,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	func applicationWillTerminate(_ aNotification: Notification) {
 		// Insert code here to tear down your application
 	}
+}
+
+extension NSTouchBarItem.Identifier {
+	static let volumeUpIdentifier = NSTouchBarItem.Identifier("com.melgu.Denon-Volume.volumeUp")
+	static let volumeDownIdentifier = NSTouchBarItem.Identifier("com.melgu.Denon-Volume.volumeDown")
+	static let volumeSliderIdentifier = NSTouchBarItem.Identifier("com.melgu.Denon-Volume.volumeSlider")
+	static let volumeLabelIdentifier = NSTouchBarItem.Identifier("com.melgu.Denon-Volume.volumeLabel")
+	static let controlBarIconIdentifier = NSTouchBarItem.Identifier("com.melgu.Denon-Volume.controlBarIcon")
 }
