@@ -33,8 +33,7 @@
 
 /* Begin PBXBuildFile section */
 		B069B3EF2314B2100019190C /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = B069B3EE2314B2100019190C /* HotKey */; };
-		B069B3F22314B2950019190C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B069B3F02314B2740019190C /* Sparkle.framework */; };
-		B069B3F32314B2950019190C /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B069B3F02314B2740019190C /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B09D71AA24661847004E171C /* UpdateNotification in Frameworks */ = {isa = PBXBuildFile; productRef = B09D71A924661847004E171C /* UpdateNotification */; };
 		B0B99AB31EC21DD800627E65 /* RegexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B99AB21EC21DD800627E65 /* RegexString.swift */; };
 		B0CAAB501EBBC11100A1E8BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */; };
 		B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */; };
@@ -74,7 +73,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B069B3F32314B2950019190C /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +80,6 @@
 
 /* Begin PBXFileReference section */
 		B045C0E120E5998000D74DAA /* Denon Volume.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
-		B069B3F02314B2740019190C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = SOURCE_ROOT; };
 		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -112,8 +109,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09D71AA24661847004E171C /* UpdateNotification in Frameworks */,
 				B069B3EF2314B2100019190C /* HotKey in Frameworks */,
-				B069B3F22314B2950019190C /* Sparkle.framework in Frameworks */,
 				B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */,
-				B069B3F02314B2740019190C /* Sparkle.framework */,
 			);
 			name = Frameworks;
 			path = "Denon VolumeTests";
@@ -234,6 +230,7 @@
 			name = "Denon Volume";
 			packageProductDependencies = (
 				B069B3EE2314B2100019190C /* HotKey */,
+				B09D71A924661847004E171C /* UpdateNotification */,
 			);
 			productName = "Denon Volume";
 			productReference = B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */;
@@ -330,6 +327,7 @@
 			mainGroup = B0CAAB431EBBC11100A1E8BF;
 			packageReferences = (
 				B069B3ED2314B2100019190C /* XCRemoteSwiftPackageReference "HotKey" */,
+				B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */,
 			);
 			productRefGroup = B0CAAB4D1EBBC11100A1E8BF /* Products */;
 			projectDirPath = "";
@@ -615,7 +613,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.19;
+				CURRENT_PROJECT_VERSION = 1.20;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -628,8 +626,8 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.19;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -646,7 +644,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.19;
+				CURRENT_PROJECT_VERSION = 1.20;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -659,8 +657,8 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.19;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.20;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -831,6 +829,14 @@
 				minimumVersion = 0.1.2;
 			};
 		};
+		B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@bitbucket.org:MikelG/updatenotification.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -838,6 +844,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B069B3ED2314B2100019190C /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
+		};
+		B09D71A924661847004E171C /* UpdateNotification */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */;
+			productName = UpdateNotification;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

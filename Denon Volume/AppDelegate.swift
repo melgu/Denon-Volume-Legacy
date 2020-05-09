@@ -8,6 +8,7 @@
 
 import Cocoa
 import HotKey
+import UpdateNotification
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	// Objects
 	let denonCommunicator = DenonCommunicator()
 	var menuViewController: MenuViewController?
+	let updateNotification = UpdateNotification(feedUrl: URL(string: "http://www.melvin-gundlach.de/apps/app-feeds/Denon-Volume.json")!)
 	
 	// Global Hotkeys
 	var hotKeyVolumeUpBig: HotKey?
@@ -259,6 +261,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		print("presentTouchBarMenu finished")
 		NSTouchBarItem.addSystemTrayItem(controlBarIcon)
 		NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
+		print("Touch Bar finished")
+		
+		if updateNotification.checkForUpdates() {
+			updateNotification.showNewVersionView()
+		}
 		print("applicationDidFinishLaunching finished")
 	}
 	
