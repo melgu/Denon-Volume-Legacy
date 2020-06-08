@@ -158,9 +158,6 @@
 		B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */ = {
 			isa = PBXGroup;
 			children = (
-				B045C0E120E5998000D74DAA /* Denon Volume.entitlements */,
-				B0DB1C601F3A3AEC0037ABC3 /* TouchBar-Bridging-Header.h */,
-				B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */,
 				B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */,
 				B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */,
 				B0CAAB7A1EBBD9B000A1E8BF /* MenuViewController.swift */,
@@ -170,6 +167,9 @@
 				B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */,
 				B0CAAB551EBBC11100A1E8BF /* Main.storyboard */,
 				B0CAAB581EBBC11100A1E8BF /* Info.plist */,
+				B0DB1C5F1F3A3ACC0037ABC3 /* TouchBar.h */,
+				B0DB1C601F3A3AEC0037ABC3 /* TouchBar-Bridging-Header.h */,
+				B045C0E120E5998000D74DAA /* Denon Volume.entitlements */,
 			);
 			path = "Denon Volume";
 			sourceTree = "<group>";
@@ -613,7 +613,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.20;
+				CURRENT_PROJECT_VERSION = 1.21;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -627,7 +627,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.20;
+				MARKETING_VERSION = 1.21;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -644,7 +644,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1.20;
+				CURRENT_PROJECT_VERSION = 1.21;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -658,7 +658,7 @@
 					"@loader_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.20;
+				MARKETING_VERSION = 1.21;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
