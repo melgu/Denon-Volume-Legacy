@@ -28,8 +28,8 @@ public class DenonCommunicator {
 	
 	init() {
 		let sessionConfig = URLSessionConfiguration.default
-		sessionConfig.timeoutIntervalForRequest = 0.5 // URL Session Timout per partial Request
-		sessionConfig.timeoutIntervalForResource = 0.5 // URL Session Total Timout per Resourcwe
+		sessionConfig.timeoutIntervalForRequest = 1.0 // URL Session Timout per partial Request
+		sessionConfig.timeoutIntervalForResource = 1.0 // URL Session Total Timout per Resourcwe
 		session = URLSession(configuration: sessionConfig)
 	}
 	
