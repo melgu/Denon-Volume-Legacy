@@ -53,7 +53,7 @@ public class DenonCommunicator {
 	}
 	
 	func volumeUpBig() {
-		let result = askVolume()
+		let result = fetchVolume()
 		
 		if result.successful && result.timeInterval {
 			lastVolume += volumeStepsBig
@@ -63,7 +63,7 @@ public class DenonCommunicator {
 	}
 	
 	func volumeDownBig() {
-		let result = askVolume()
+		let result = fetchVolume()
 		
 		if result.successful && result.timeInterval {
 			lastVolume -= volumeStepsBig
@@ -73,7 +73,7 @@ public class DenonCommunicator {
 	}
 	
 	func volumeUpLittle() {
-		let result = askVolume()
+		let result = fetchVolume()
 		
 		if result.successful && result.timeInterval {
 			lastVolume += volumeStepsLittle
@@ -83,7 +83,7 @@ public class DenonCommunicator {
 	}
 	
 	func volumeDownLittle() {
-		let result = askVolume()
+		let result = fetchVolume()
 		
 		if result.successful && result.timeInterval {
 			lastVolume -= volumeStepsLittle
@@ -133,7 +133,7 @@ public class DenonCommunicator {
 	
 	// successful: Connection to AVR successful
 	// timeInterval: 'false' if too short after previous execution
-	@discardableResult func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
+	@discardableResult func fetchVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
 		
 		if Date().timeIntervalSince(lastTimeReceive) < 0.05 {
 			return (lastVolume, true, false)

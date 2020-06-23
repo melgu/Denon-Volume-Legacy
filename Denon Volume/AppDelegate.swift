@@ -45,7 +45,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	}
 	@objc func presentTouchBarMenu() {
 		print("Present")
-		_ = askVolume()
+		fetchVolume()
 		NSTouchBar.presentSystemModalTouchBar(groupTouchBar, systemTrayItemIdentifier: .controlBarIconIdentifier)
 		DFRElementSetControlStripPresenceForIdentifier(.controlBarIconIdentifier, true)
 	}
@@ -163,8 +163,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		return denonCommunicator.sendVolume(volume: volume)
 	}
 	
-	@discardableResult func askVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
-		return denonCommunicator.askVolume()
+	@discardableResult func fetchVolume() -> (volume: Int, successful: Bool, timeInterval: Bool) {
+		return denonCommunicator.fetchVolume()
 	}
 	
 	@objc func volumeUpBig() {
@@ -228,7 +228,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		
 		popover.contentViewController = MenuViewController(nibName: NSNib.Name("MenuViewController"), bundle: nil)
 		
-		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [unowned self] event in
+		eventMonitor = EventMonitor(mask: [.leftMouseDown, .rightMouseDown, .otherMouseDown]) { [unowned self] _ in
 			if self.popover.isShown {
 				self.closePopover()
 			}

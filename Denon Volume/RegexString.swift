@@ -21,16 +21,3 @@ extension String {
 		}
 	}
 }
-
-//"prefix12 aaa3 prefix45".matchingStrings(regex: "fix([0-9])([0-9])")
-//// Prints: [["fix12", "1", "2"], ["fix45", "4", "5"]]
-//
-//"prefix12".matchingStrings(regex: "(?:prefix)?([0-9]+)")
-//// Prints: [["prefix12", "12"]]
-//
-//"12".matchingStrings(regex: "(?:prefix)?([0-9]+)")
-//// Prints: [["12", "12"]], other answers return an empty array here
-//
-//// Safely accessing the capture of the first match (if any):
-//let number = "prefix12suffix".matchingStrings(regex: "fix([0-9]+)su").first?[1]
-//// Prints: Optional("12")
