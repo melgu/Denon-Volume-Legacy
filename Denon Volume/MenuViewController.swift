@@ -23,7 +23,7 @@ class MenuViewController: NSViewController {
 	@IBAction func deviceFieldTextChange(_ sender: Any) {
 		print(deviceField.stringValue)
 		appDelegate?.setDeviceName(name: deviceField.stringValue)
-		_ = askVolume()
+		fetchVolume()
 	}
 	
 	@IBAction func quitButton(_ sender: Any) {
@@ -47,9 +47,9 @@ class MenuViewController: NSViewController {
 		appDelegate?.sendVolume(volume: volume)
 	}
 	
-	func askVolume() {
+	func fetchVolume() {
 		appDelegate?.setDeviceName(name: deviceField.stringValue)
-		appDelegate?.askVolume()
+		appDelegate?.fetchVolume()
 	}
 	
 	func updateUI(volume: Int, state: Bool, reachable: Bool) {
@@ -115,6 +115,6 @@ class MenuViewController: NSViewController {
     }
 	
 	override func viewWillAppear() {
-		askVolume()
+		fetchVolume()
 	}
 }
