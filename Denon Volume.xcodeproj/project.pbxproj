@@ -835,7 +835,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "git@bitbucket.org:MikelG/updatenotification.git";
 			requirement = {
-				branch = master;
+				branch = main;
 				kind = branch;
 			};
 		};
