@@ -15,13 +15,13 @@ Control your Denon or Marantz receiver from the Keyboard, the Menu Bar or the To
 
 ## Menu Bar
 
-![Menu Bar](README.assets/Menu Bar.png)
+![Menu Bar](README.assets/MenuBar.png)
 
 ## Touch Bar
 
 It sits in the Control Strip.
 
-![Touch Bar closed](README.assets/Touch Bar closed.png)
+![Touch Bar closed](README.assets/TouchBarClosed.png)
 
-![Touch Bar open](README.assets/Touch Bar open.png)
+![Touch Bar open](README.assets/TouchBarOpen.png)
 
