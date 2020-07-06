@@ -80,6 +80,12 @@
 
 /* Begin PBXFileReference section */
 		B045C0E120E5998000D74DAA /* Denon Volume.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Denon Volume.entitlements"; sourceTree = "<group>"; };
+		B0807AB324B2BA9A0055524E /* Touch Bar closed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Touch Bar closed.png"; sourceTree = "<group>"; };
+		B0807AB424B2BA9A0055524E /* Touch Bar open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Touch Bar open.png"; sourceTree = "<group>"; };
+		B0807AB524B2BA9A0055524E /* Menu Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu Bar.png"; sourceTree = "<group>"; };
+		B0807AB624B2BA9A0055524E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		B0807AB824B2BBB10055524E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B0807AB924B2BBB10055524E /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		B0B99AB21EC21DD800627E65 /* RegexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexString.swift; sourceTree = "<group>"; };
 		B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Denon Volume.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,16 +138,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0807AB224B2BA9A0055524E /* README.assets */ = {
+			isa = PBXGroup;
+			children = (
+				B0807AB324B2BA9A0055524E /* Touch Bar closed.png */,
+				B0807AB424B2BA9A0055524E /* Touch Bar open.png */,
+				B0807AB524B2BA9A0055524E /* Menu Bar.png */,
+			);
+			path = README.assets;
+			sourceTree = "<group>";
+		};
 		B0CAAB431EBBC11100A1E8BF = {
 			isa = PBXGroup;
 			children = (
-				B0E6AED12255A5C400D7DA7B /* .swiftlint.yml */,
 				B0CAAB4E1EBBC11100A1E8BF /* Denon Volume */,
 				B0CAAB601EBBC11200A1E8BF /* Denon VolumeTests */,
 				B0CAAB6B1EBBC11200A1E8BF /* Denon VolumeUITests */,
 				B0CAAB811EBC043600A1E8BF /* Frameworks */,
 				B0CAAB861EBC068B00A1E8BF /* Resources */,
 				B0CAAB4D1EBBC11100A1E8BF /* Products */,
+				B0E6AED12255A5C400D7DA7B /* .swiftlint.yml */,
+				B0807AB824B2BBB10055524E /* .gitignore */,
+				B0807AB924B2BBB10055524E /* .gitattributes */,
+				B0807AB624B2BA9A0055524E /* README.md */,
+				B0807AB224B2BA9A0055524E /* README.assets */,
 			);
 			sourceTree = "<group>";
 		};
