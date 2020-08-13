@@ -33,7 +33,6 @@
 
 /* Begin PBXBuildFile section */
 		B069B3EF2314B2100019190C /* HotKey in Frameworks */ = {isa = PBXBuildFile; productRef = B069B3EE2314B2100019190C /* HotKey */; };
-		B09D71AA24661847004E171C /* UpdateNotification in Frameworks */ = {isa = PBXBuildFile; productRef = B09D71A924661847004E171C /* UpdateNotification */; };
 		B0B99AB31EC21DD800627E65 /* RegexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B99AB21EC21DD800627E65 /* RegexString.swift */; };
 		B0CAAB501EBBC11100A1E8BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB4F1EBBC11100A1E8BF /* AppDelegate.swift */; };
 		B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB531EBBC11100A1E8BF /* Assets.xcassets */; };
@@ -47,6 +46,7 @@
 		B0D1505E22D22C3C003FD579 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0D1505D22D22C3C003FD579 /* dsa_pub.pem */; };
 		B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */; };
 		B0EA28331F3526070033A9D8 /* DenonCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */; };
+		B0EAD6F424E4EB470009A5E2 /* UpdateNotification in Frameworks */ = {isa = PBXBuildFile; productRef = B0EAD6F324E4EB470009A5E2 /* UpdateNotification */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B09D71AA24661847004E171C /* UpdateNotification in Frameworks */,
+				B0EAD6F424E4EB470009A5E2 /* UpdateNotification in Frameworks */,
 				B069B3EF2314B2100019190C /* HotKey in Frameworks */,
 				B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */,
 			);
@@ -250,7 +250,7 @@
 			name = "Denon Volume";
 			packageProductDependencies = (
 				B069B3EE2314B2100019190C /* HotKey */,
-				B09D71A924661847004E171C /* UpdateNotification */,
+				B0EAD6F324E4EB470009A5E2 /* UpdateNotification */,
 			);
 			productName = "Denon Volume";
 			productReference = B0CAAB4C1EBBC11100A1E8BF /* Denon Volume.app */;
@@ -347,7 +347,7 @@
 			mainGroup = B0CAAB431EBBC11100A1E8BF;
 			packageReferences = (
 				B069B3ED2314B2100019190C /* XCRemoteSwiftPackageReference "HotKey" */,
-				B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */,
+				B0EAD6F224E4EB470009A5E2 /* XCRemoteSwiftPackageReference "UpdateNotification" */,
 			);
 			productRefGroup = B0CAAB4D1EBBC11100A1E8BF /* Products */;
 			projectDirPath = "";
@@ -851,9 +851,9 @@
 				minimumVersion = 0.1.2;
 			};
 		};
-		B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */ = {
+		B0EAD6F224E4EB470009A5E2 /* XCRemoteSwiftPackageReference "UpdateNotification" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@bitbucket.org:MikelG/updatenotification.git";
+			repositoryURL = "git@github.com:melgu/UpdateNotification.git";
 			requirement = {
 				branch = main;
 				kind = branch;
@@ -867,9 +867,9 @@
 			package = B069B3ED2314B2100019190C /* XCRemoteSwiftPackageReference "HotKey" */;
 			productName = HotKey;
 		};
-		B09D71A924661847004E171C /* UpdateNotification */ = {
+		B0EAD6F324E4EB470009A5E2 /* UpdateNotification */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = B09D71A824661847004E171C /* XCRemoteSwiftPackageReference "updatenotification" */;
+			package = B0EAD6F224E4EB470009A5E2 /* XCRemoteSwiftPackageReference "UpdateNotification" */;
 			productName = UpdateNotification;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -12,10 +12,10 @@
       },
       {
         "package": "UpdateNotification",
-        "repositoryURL": "git@bitbucket.org:MikelG/updatenotification.git",
+        "repositoryURL": "git@github.com:melgu/UpdateNotification.git",
         "state": {
           "branch": "main",
-          "revision": "f0e5aac881d937500043b0f33ccc71b650dd5f4f",
+          "revision": "9dbcbf977051ddd8e433183dc2b5b22b9d2bffb6",
           "version": null
         }
       }
