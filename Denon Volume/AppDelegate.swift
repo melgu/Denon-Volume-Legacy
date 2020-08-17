@@ -18,6 +18,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	// Objects
 	let denonCommunicator = DenonCommunicator()
 	var menuViewController: MenuViewController?
+	
+	// UpdateNotification
 	let updateNotification = UpdateNotification(feedUrl: URL(string: "http://www.melvin-gundlach.de/apps/app-feeds/Denon-Volume.json")!)
 	
 	// Global Hotkeys
@@ -84,6 +86,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		if let button = statusItem.button {
 			print("showPopover Inside Button")
 			popover.show(relativeTo: button.bounds, of: button, preferredEdge: NSRectEdge.minY)
+			
+			updateCheck()
 		}
 		print("showPopover Button done")
 		
@@ -104,6 +108,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		}
 	}
 	
+	// MARK: - Func: UpdateNotification
+	
+	func updateCheck() {
+		DispatchQueue.global(qos: .background).async { [unowned self] in
+			if updateNotification.checkForUpdates() {
+				DispatchQueue.main.async {
+					updateNotification.showNewVersionView()
+				}
+			}
+		}
+	}
 	
 	// MARK: - Func: Other
 	
@@ -263,9 +278,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 		NSTouchBar.minimizeSystemModalTouchBar(groupTouchBar)
 		print("Touch Bar finished")
 		
-		if updateNotification.checkForUpdates() {
-			updateNotification.showNewVersionView()
-		}
 		print("applicationDidFinishLaunching finished")
 	}
 	
