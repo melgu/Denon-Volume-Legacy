@@ -43,7 +43,6 @@
 		B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0CAAB7B1EBBD9B000A1E8BF /* MenuViewController.xib */; };
 		B0CAAB7F1EBBF28900A1E8BF /* EventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CAAB7E1EBBF28900A1E8BF /* EventMonitor.swift */; };
 		B0D024431F4F5B0300CC10D8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B0D024421F4F5A9600CC10D8 /* Credits.rtf */; };
-		B0D1505E22D22C3C003FD579 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = B0D1505D22D22C3C003FD579 /* dsa_pub.pem */; };
 		B0DB1C5E1F3A3A7F0037ABC3 /* DFRFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DB1C5D1F3A3A7F0037ABC3 /* DFRFoundation.framework */; };
 		B0EA28331F3526070033A9D8 /* DenonCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA28321F3526070033A9D8 /* DenonCommunicator.swift */; };
 		B0EAD6F424E4EB470009A5E2 /* UpdateNotification in Frameworks */ = {isa = PBXBuildFile; productRef = B0EAD6F324E4EB470009A5E2 /* UpdateNotification */; };
@@ -367,7 +366,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0D1505E22D22C3C003FD579 /* dsa_pub.pem in Resources */,
 				B0D024431F4F5B0300CC10D8 /* Credits.rtf in Resources */,
 				B0CAAB541EBBC11100A1E8BF /* Assets.xcassets in Resources */,
 				B0CAAB7D1EBBD9B000A1E8BF /* MenuViewController.xib in Resources */,
