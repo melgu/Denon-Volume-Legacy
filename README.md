@@ -34,4 +34,4 @@ It sits in the Control Strip.
 ## Download
 
 You can download the latest version [here](https://github.com/melgu/Denon-Volume/releases).
-After downloading and unpacking the TidalSwift.zip, move the app to the Applications folder. If you get a GateKeeper warning on first launch, right-click the app, select open and confirm your action in the dialog popping up. Sometimes this needs to be done twice. Alternatively you can allow the app in System Settings -> Security.
+After downloading and unpacking the Denon-Volume.zip, move the app to the Applications folder. If you get a GateKeeper warning on first launch, right-click the app, select open and confirm your action in the dialog popping up. Sometimes this needs to be done twice. Alternatively you can allow the app in System Settings -> Security.
