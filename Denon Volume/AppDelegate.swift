@@ -37,7 +37,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	// Touch Bar
 	var groupTouchBar: NSTouchBar?
 	
-	var tbControlStripButton = NSButton(title: "00", target: self, action: #selector(presentTouchBarMenu))
+	lazy var tbControlStripButton = NSButton(title: "00", target: self, action: #selector(presentTouchBarMenu))
 	let tbSlider = NSSliderTouchBarItem(identifier: .volumeSliderIdentifier)
 	var tbLabelTextField: NSTextField = NSTextField(labelWithString: "00")
 	
@@ -113,7 +113,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTouchBarDelegate {
 	func updateCheck() {
 		DispatchQueue.global(qos: .background).async { [unowned self] in
 			if updateNotification.checkForUpdates() {
-				DispatchQueue.main.async {
+				DispatchQueue.main.async { [unowned self] in
 					updateNotification.showNewVersionView()
 				}
 			}
