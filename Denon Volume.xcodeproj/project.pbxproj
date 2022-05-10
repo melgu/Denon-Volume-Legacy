@@ -636,16 +636,9 @@
 				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Frameworks",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
@@ -667,16 +660,9 @@
 				CURRENT_PROJECT_VERSION = 1.26;
 				DEVELOPMENT_TEAM = V7E5P7292M;
 				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(PROJECT_DIR)/Frameworks",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks";
 				INFOPLIST_FILE = "Denon Volume/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.melgu.Denon-Volume";
